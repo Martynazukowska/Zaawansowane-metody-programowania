@@ -4,6 +4,8 @@ __start__: obj __lines_for_space__ interp __plugin__
 obj:
 	mkdir obj
 
+libs:
+	mkdir libs
 
 __lines_for_space__:
 	@echo
