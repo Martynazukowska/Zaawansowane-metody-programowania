@@ -18,10 +18,12 @@ private:
     std::string _CmdName;
     
     Interp4Command *(*_pCreateCmd)(void);
-    RTLD_mode _LibHndMode;
+    Interp4Command *_pCmd;
 public:
     LibInterface(const char *LibName, RTLD_mode mode);
     ~LibInterface();
+    void CreateCmd(const char *CmdName);
+    const Interp4Command* get_Cmd() const;
 };
 
 
