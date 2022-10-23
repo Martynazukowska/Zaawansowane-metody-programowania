@@ -11,9 +11,6 @@ __lines_for_space__:
 	@echo
 	@echo
 	@echo
-	@echo
-	@echo
-
 
 __plugin__:
 	cd plugin; make
@@ -22,12 +19,14 @@ CPPFLAGS=-Wall -pedantic -std=c++17 -Iinc
 LDFLAGS=-Wall
 
 
+interp: obj/LibInterface.o obj/main.o
+	g++ ${LDFLAGS} -o interp  obj/main.o obj/LibInterface.o -ldl
 
+obj/LibInterface.o: inc/LibInterface.hh inc/Interp4Command.hh\
+					src/LibInterface.cpp
+	g++ -c ${CPPFLAGS} -o obj/LibInterface.o src/LibInterface.cpp
 
-interp: obj/main.o
-	g++ ${LDFLAGS} -o interp  obj/main.o -ldl
-
-obj/main.o: src/main.cpp inc/Interp4Command.hh
+obj/main.o: src/main.cpp inc/Interp4Command.hh inc/LibInterface.hh
 	g++ -c ${CPPFLAGS} -o obj/main.o src/main.cpp
 
 clean:
