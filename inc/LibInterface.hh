@@ -8,7 +8,7 @@
 #include "MobileObj.hh"
 
 //dodatkowe do łatwiejszego inicjowania
-enum RTLD_mode {lazy=RTLD_LAZY, now=RTLD_NOW, binding_mask=RTLD_BINDING_MASK, noload=RTLD_NOLOAD, deepbind=RTLD_DEEPBIND};
+enum RTLD_mode {wolny=RTLD_LAZY, teraz=RTLD_NOW, maska=RTLD_BINDING_MASK, noload=RTLD_NOLOAD, deep=RTLD_DEEPBIND};
 
 class LibInterface
 {

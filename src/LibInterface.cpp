@@ -4,6 +4,11 @@
 LibInterface::LibInterface(const char *LibName, RTLD_mode mode)
 {
     _LibHandler = dlopen(LibName, mode);
+    if(!_LibHandler)
+    {
+        std::cerr<<"Błąd: nieznaleziona biblioteka "<<LibName<<std::endl;
+        exit(1);
+    }
      void *pFun = dlsym(_LibHandler, "CreateCmd");
 }
 
