@@ -44,7 +44,11 @@ int main()
   cout<<endl;
   cout<<"START"<<endl;
   cout<<pierwszy.get_Cmd()->GetCmdName();
+  
   cout<<endl;
+  pierwszy.get_Cmd()->PrintSyntax();
+  cout<<endl;
+  pierwszy.get_Cmd()->PrintCmd();
   
   // delete pCmd;
 
