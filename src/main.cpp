@@ -6,7 +6,31 @@
 
 #include "LibInterface.hh"
 
+#include <cstdio>
+#include <sstream>
+#define LINE 500
+
 using namespace std;
+
+bool ExecProcesor(const char *NazwaPliku,istringstream &IStrm4Cmds)
+{
+  string Cmd4Preproc="cpp -P";
+  char Line[LINE];
+  ostringstream OTmpStrm;
+
+  Cmd4Preproc+=NazwaPliku;
+  FILE*pProc=popen(Cmd4Preproc.c_str(),"r");
+
+  if(!pProc)return false;
+
+  while(fgets(Line,LINE,pProc))
+  {
+    OTmpStrm<<Line;
+  }
+  IStrm4Cmds.str(OTmpStrm.str());
+  return pclose(pProc)==0;
+}
+
 
 
 int main()
@@ -28,8 +52,22 @@ int main()
   // }
   // pCreateCmd_Move = *reinterpret_cast<Interp4Command* (**)(void)>(&pFun);
 
-  LibInterface pierwszy("libInterp4Move.so", wolny);
-  pierwszy.CreateCmd("CreateCmd");
+  LibInterface move("libInterp4Move.so", wolny);
+
+  LibInterface rotate("libInterp4Rotate.so", wolny);
+
+  LibInterface set("libInterp4Set.so", wolny);
+
+  LibInterface pause("libInterp4Pause.so", wolny);
+ 
+  
+  move.CreateCmd();
+  rotate.CreateCmd();
+  set.CreateCmd();
+  pause.CreateCmd();
+
+
+
 
   // Interp4Command *pCmd = pCreateCmd_Move();
 
@@ -43,12 +81,30 @@ int main()
 
   cout<<endl;
   cout<<"START"<<endl;
-  cout<<pierwszy.get_Cmd()->GetCmdName();
-  
+
+  cout<<move.get_Cmd()->GetCmdName();
   cout<<endl;
-  pierwszy.get_Cmd()->PrintSyntax();
+  move.get_Cmd()->PrintSyntax();
   cout<<endl;
-  pierwszy.get_Cmd()->PrintCmd();
+  move.get_Cmd()->PrintCmd();
+
+  cout<<rotate.get_Cmd()->GetCmdName();
+  cout<<endl;
+  rotate.get_Cmd()->PrintSyntax();
+  cout<<endl;
+  rotate.get_Cmd()->PrintCmd();
+
+  cout<<set.get_Cmd()->GetCmdName();
+  cout<<endl;
+  set.get_Cmd()->PrintSyntax();
+  cout<<endl;
+  set.get_Cmd()->PrintCmd();
+
+  cout<<pause.get_Cmd()->GetCmdName();
+  cout<<endl;
+  pause.get_Cmd()->PrintSyntax();
+  cout<<endl;
+  pause.get_Cmd()->PrintCmd();
   
   // delete pCmd;
 

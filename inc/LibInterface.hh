@@ -3,6 +3,7 @@
 
 #include <string>
 #include <dlfcn.h>
+#include <map>
 
 #include "Interp4Command.hh"
 #include "MobileObj.hh"
@@ -14,15 +15,17 @@ class LibInterface
 {
 private:
     void *_LibHandler;
+    //std::map<std::string,void*>_LibHandler;
     //cala sciezka gdzie jest
     std::string _CmdName;
     
     Interp4Command *(*_pCreateCmd)(void);
-    Interp4Command *_pCmd;
+    Interp4Command *_pCmd=nullptr;
 public:
     LibInterface(const char *LibName, RTLD_mode mode);
     ~LibInterface();
-    void CreateCmd(const char *CmdName);
+    void CreateCmd();
+    std::string getCmdName();
     const Interp4Command* get_Cmd() const;
 };
 
