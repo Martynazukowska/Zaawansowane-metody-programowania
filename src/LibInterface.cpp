@@ -1,9 +1,9 @@
 #include "LibInterface.hh"
 
 // dlopen(nazwa_pliku,flaga)
-LibInterface::LibInterface(const char *LibName, RTLD_mode mode)
+LibInterface::LibInterface(std::string LibName, RTLD_mode mode)
 {
-    _LibHandler = dlopen(LibName, mode);
+    _LibHandler = dlopen(LibName.c_str(), mode);
     //void *pomLibHandler=dlopen(LibName, mode);
 
     //_LibHandler[LibName]=pomLibHandler;

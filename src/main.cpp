@@ -6,6 +6,8 @@
 
 #include "LibInterface.hh"
 
+#include "InterfaceVector.hh"
+
 #include <cstdio>
 #include <sstream>
 #define LINE 500
@@ -35,22 +37,6 @@ bool ExecProcesor(const char *NazwaPliku,istringstream &IStrm4Cmds)
 
 int main()
 {
-  // void *pLibHnd_Move = dlopen("libInterp4Move.so",RTLD_LAZY);
-  // Interp4Command *(*pCreateCmd_Move)(void);
-  // void *pFun;
-
-  // if (!pLibHnd_Move) {
-  //   cerr << "!!! Brak biblioteki: Interp4Move.so" << endl;
-  //   return 1;
-  // }
-
-
-  // pFun = dlsym(pLibHnd_Move,"CreateCmd");
-  // if (!pFun) {
-  //   cerr << "!!! Nie znaleziono funkcji CreateCmd" << endl;
-  //   return 1;
-  // }
-  // pCreateCmd_Move = *reinterpret_cast<Interp4Command* (**)(void)>(&pFun);
 
   LibInterface move("libInterp4Move.so", wolny);
 
@@ -61,53 +47,51 @@ int main()
   LibInterface pause("libInterp4Pause.so", wolny);
  
   
-  move.CreateCmd();
-  rotate.CreateCmd();
-  set.CreateCmd();
-  pause.CreateCmd();
+  // move.CreateCmd();
+  // rotate.CreateCmd();
+  // set.CreateCmd();
+  // pause.CreateCmd();
 
+  // cout<<endl;
+  // cout<<"START"<<endl;
 
+  // cout<<move.get_Cmd()->GetCmdName();
+  // cout<<endl;
+  // move.get_Cmd()->PrintSyntax();
+  // cout<<endl;
+  // move.get_Cmd()->PrintCmd();
 
+  // cout<<rotate.get_Cmd()->GetCmdName();
+  // cout<<endl;
+  // rotate.get_Cmd()->PrintSyntax();
+  // cout<<endl;
+  // rotate.get_Cmd()->PrintCmd();
 
-  // Interp4Command *pCmd = pCreateCmd_Move();
+  // cout<<set.get_Cmd()->GetCmdName();
+  // cout<<endl;
+  // set.get_Cmd()->PrintSyntax();
+  // cout<<endl;
+  // set.get_Cmd()->PrintCmd();
 
-  // cout << endl;
-  // cout << pCmd->GetCmdName() << endl;
-  // cout << endl;
-  // pCmd->PrintSyntax();
-  // cout << endl;
-  // pCmd->PrintCmd();
-  // cout << endl;
-
-  cout<<endl;
-  cout<<"START"<<endl;
-
-  cout<<move.get_Cmd()->GetCmdName();
-  cout<<endl;
-  move.get_Cmd()->PrintSyntax();
-  cout<<endl;
-  move.get_Cmd()->PrintCmd();
-
-  cout<<rotate.get_Cmd()->GetCmdName();
-  cout<<endl;
-  rotate.get_Cmd()->PrintSyntax();
-  cout<<endl;
-  rotate.get_Cmd()->PrintCmd();
-
-  cout<<set.get_Cmd()->GetCmdName();
-  cout<<endl;
-  set.get_Cmd()->PrintSyntax();
-  cout<<endl;
-  set.get_Cmd()->PrintCmd();
-
-  cout<<pause.get_Cmd()->GetCmdName();
-  cout<<endl;
-  pause.get_Cmd()->PrintSyntax();
-  cout<<endl;
-  pause.get_Cmd()->PrintCmd();
+  // cout<<pause.get_Cmd()->GetCmdName();
+  // cout<<endl;
+  // pause.get_Cmd()->PrintSyntax();
+  // cout<<endl;
+  // pause.get_Cmd()->PrintCmd();
   
-  // delete pCmd;
+  InterfaceVector Libs;
+  Libs.CreateCmd("Move");
+  Libs.CreateCmd("Rotate");
+  Libs.CreateCmd("Pause");
+  Libs.CreateCmd("Set");
 
-  // dlclose(pLibHnd_Move);
+  cout<<endl;
+  cout<<Libs.GetCmdName("Move") + "\n";
+  cout<<endl;
+  cout<<Libs.GetCmdName("Rotate") + "\n";
+  cout<<endl;
+  cout<<Libs.GetCmdName("Pause") + "\n";
+  cout<<endl;
+  cout<<Libs.GetCmdName("Set") + "\n";
 
 }
