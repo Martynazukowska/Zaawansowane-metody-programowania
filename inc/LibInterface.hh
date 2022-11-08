@@ -15,8 +15,6 @@ class LibInterface
 {
 private:
     void *_LibHandler;
-    //std::map<std::string,void*>_LibHandler;
-    //cala sciezka gdzie jest
     std::string _CmdName;
     
     Interp4Command *(*_pCreateCmd)(void);

@@ -47,37 +47,6 @@ int main()
   LibInterface pause("libInterp4Pause.so", wolny);
  
   
-  // move.CreateCmd();
-  // rotate.CreateCmd();
-  // set.CreateCmd();
-  // pause.CreateCmd();
-
-  // cout<<endl;
-  // cout<<"START"<<endl;
-
-  // cout<<move.get_Cmd()->GetCmdName();
-  // cout<<endl;
-  // move.get_Cmd()->PrintSyntax();
-  // cout<<endl;
-  // move.get_Cmd()->PrintCmd();
-
-  // cout<<rotate.get_Cmd()->GetCmdName();
-  // cout<<endl;
-  // rotate.get_Cmd()->PrintSyntax();
-  // cout<<endl;
-  // rotate.get_Cmd()->PrintCmd();
-
-  // cout<<set.get_Cmd()->GetCmdName();
-  // cout<<endl;
-  // set.get_Cmd()->PrintSyntax();
-  // cout<<endl;
-  // set.get_Cmd()->PrintCmd();
-
-  // cout<<pause.get_Cmd()->GetCmdName();
-  // cout<<endl;
-  // pause.get_Cmd()->PrintSyntax();
-  // cout<<endl;
-  // pause.get_Cmd()->PrintCmd();
   
   InterfaceVector Libs;
   Libs.CreateCmd("Move");
