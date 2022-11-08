@@ -21,12 +21,19 @@
  *  Klasa modeluje ...
  */
 class Interp4Move: public Interp4Command {
-  /*
-   *  Tu należy zdefiniować pola, które są niezbędne
-   *  do przechowywania wartości parametrów danego polecenia.
-   *  Ponieżej zdefiniowane jest tylko jedno pole jako przykład.
-   */
-  double  _Speed_mmS;
+/*! 
+* \brief Nazwa obiektu
+*/
+std::string obj_name;
+/*! 
+* \brief Predkość przesunięcia (m/s)
+*/
+int vel_ms;
+/*! 
+* \brief Przemieszczenie (m)
+*/
+int dist_m;
+
  public:
   /*!
    * \brief

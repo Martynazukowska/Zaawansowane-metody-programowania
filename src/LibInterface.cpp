@@ -50,7 +50,7 @@ std::string LibInterface::getCmdName()
 {
     return _CmdName;
 }
-const Interp4Command* LibInterface::get_Cmd() const
+Interp4Command* LibInterface::get_Cmd() const 
 {
     return _pCmd;
 }

@@ -85,13 +85,29 @@ int main()
   Libs.CreateCmd("Pause");
   Libs.CreateCmd("Set");
 
+  Interp4Command *wskazik=Libs["Move"]->get_Cmd();
+  Interp4Command *wskazik1=Libs["Rotate"]->get_Cmd();
+  Interp4Command *wskazik2=Libs["Pause"]->get_Cmd();
+  Interp4Command *wskazik3=Libs["Set"]->get_Cmd();
+
+
+
   cout<<endl;
-  cout<<Libs.GetCmdName("Move") + "\n";
+  cout<<Libs["Move"]->getCmdName() <<"\n";
+  wskazik->PrintSyntax();
+  wskazik->PrintCmd();
   cout<<endl;
-  cout<<Libs.GetCmdName("Rotate") + "\n";
+
+  cout<<Libs["Rotate"]->getCmdName()<<"\n";
+  wskazik1->PrintSyntax();
+  wskazik1->PrintCmd();
   cout<<endl;
-  cout<<Libs.GetCmdName("Pause") + "\n";
+  cout<<Libs["Pause"]->getCmdName()<<"\n";
+  wskazik2->PrintSyntax();
+  wskazik2->PrintCmd();
   cout<<endl;
-  cout<<Libs.GetCmdName("Set") + "\n";
+  cout<<Libs["Set"]->getCmdName()<<"\n";
+  wskazik3->PrintSyntax();
+  wskazik3->PrintCmd();
 
 }

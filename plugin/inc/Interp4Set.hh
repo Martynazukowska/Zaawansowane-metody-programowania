@@ -21,12 +21,22 @@
  *  Klasa modeluje ...
  */
 class Interp4Set: public Interp4Command {
-  /*
-   *  Tu należy zdefiniować pola, które są niezbędne
-   *  do przechowywania wartości parametrów danego polecenia.
-   *  Ponieżej zdefiniowane jest tylko jedno pole jako przykład.
-   */
-  double  _Speed_mmS;
+/*! 
+* \brief Nazwa obiektu do ustawienia
+*/
+			std::string obj_name;
+/*! 
+* \brief Pozycja X (m)
+*/
+int pos_x_m;
+/*! 
+* \brief Pozycja Y (m)
+*/
+int pos_y_m;
+/*! 
+* \brief Rotacja (deg)
+*/
+int angle_z_deg;
  public:
   /*!
    * \brief

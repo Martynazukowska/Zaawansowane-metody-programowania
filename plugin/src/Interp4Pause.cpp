@@ -28,7 +28,7 @@ Interp4Command* CreateCmd(void)
 /*!
  *
  */
-Interp4Pause::Interp4Pause(): _Speed_mmS(0)
+Interp4Pause::Interp4Pause(): time(0)
 {}
 
 
@@ -40,7 +40,7 @@ void Interp4Pause::PrintCmd() const
   /*
    *  Tu trzeba napisać odpowiednio zmodyfikować kod poniżej.
    */
-  cout << GetCmdName() << " " << _Speed_mmS  << " 10  2" << endl;
+  cout << GetCmdName() << " " << time << endl;
 }
 
 
@@ -70,9 +70,12 @@ bool Interp4Pause::ExecCmd( MobileObj  *pMobObj,  int  Socket) const
  */
 bool Interp4Pause::ReadParams(std::istream& Strm_CmdsList)
 {
-  /*
-   *  Tu trzeba napisać odpowiedni kod.
-   */
+  if(!(Strm_CmdsList >> time))
+  {
+    std::cout << "Nie wczytano poprawnie czasu"<< endl;
+    return 1;
+  }
+
   return true;
 }
 
@@ -91,5 +94,5 @@ Interp4Command* Interp4Pause::CreateCmd()
  */
 void Interp4Pause::PrintSyntax() const
 {
-  cout << "   Pause  NazwaObiektu  Szybkosc[m/s]  DlugoscDrogi[m]" << endl;
+  cout << "   Pause  czas[s] " << endl;
 }

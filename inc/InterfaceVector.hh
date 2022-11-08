@@ -11,7 +11,7 @@
 #define LIB_Rotate  "libInterp4Rotate.so"
 #define LIB_Set     "libInterp4Set.so"
 
-#define GET_LIB(CmdName) STR(LIB_##CmdName)
+//#define GET_LIB(CmdName) STR(LIB_##CmdName)
 
 class InterfaceVector
 {
@@ -21,7 +21,8 @@ public:
     InterfaceVector();
     ~InterfaceVector();
     void CreateCmd(std::string Cmd);
-    std::string GetCmdName(std::string Cmd);
+    //std::string GetCmdName(std::string Cmd);
+    std::shared_ptr<LibInterface> operator [] (std::string Cmd);
 };
 
 #endif

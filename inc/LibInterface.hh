@@ -26,7 +26,7 @@ public:
     ~LibInterface();
     void CreateCmd();
     std::string getCmdName();
-    const Interp4Command* get_Cmd() const;
+    Interp4Command* get_Cmd() const;
 };
 
 

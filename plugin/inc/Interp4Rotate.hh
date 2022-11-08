@@ -21,12 +21,18 @@
  *  Klasa modeluje ...
  */
 class Interp4Rotate: public Interp4Command {
-  /*
-   *  Tu należy zdefiniować pola, które są niezbędne
-   *  do przechowywania wartości parametrów danego polecenia.
-   *  Ponieżej zdefiniowane jest tylko jedno pole jako przykład.
-   */
-  double  _Speed_mmS;
+/*!
+* \brief Nazwa obiektu
+*/
+std::string obj_name; 
+/*! 
+* \brief Prędkość obiektu degrees/second (deg/s)
+*/
+double rot_speed_degs;
+/*! 
+* \brief Rotacja (deg)
+*/
+double rot_deg;
  public:
   /*!
    * \brief

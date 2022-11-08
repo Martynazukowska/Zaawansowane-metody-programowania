@@ -38,7 +38,12 @@ void InterfaceVector::CreateCmd(std::string Cmd)
 
 }
 
-std::string InterfaceVector::GetCmdName(std::string Cmd)
+// std::string InterfaceVector::GetCmdName(std::string Cmd)
+// {
+//     return _LibHandlers[Cmd]->getCmdName();
+// }
+
+std::shared_ptr<LibInterface> InterfaceVector::operator [] (std::string Cmd)
 {
-    return _LibHandlers[Cmd]->getCmdName();
+    return _LibHandlers[Cmd];
 }
