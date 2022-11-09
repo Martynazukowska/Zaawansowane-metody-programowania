@@ -37,5 +37,6 @@ std::string LibInterface::getCmdName()
 }
 Interp4Command* LibInterface::get_Cmd() const 
 {
-    return _pCmd;
+   // return _pCmd;
+   return _pCreateCmd();
 }

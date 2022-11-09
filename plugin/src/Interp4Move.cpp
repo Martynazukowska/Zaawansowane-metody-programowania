@@ -70,9 +70,24 @@ bool Interp4Move::ExecCmd( MobileObj  *pMobObj,  int  Socket) const
  */
 bool Interp4Move::ReadParams(std::istream& Strm_CmdsList)
 {
-  /*
-   *  Tu trzeba napisać odpowiedni kod.
-   */
+  if(!(Strm_CmdsList >> obj_name))
+  {
+    std::cout << "Nie wczytano nazwy obiektu obrotu"<< endl;
+    return 1;
+  }
+
+  if(!(Strm_CmdsList >> vel_ms))
+  {
+    std::cout << "Nie wczytano predkosci"<< endl;
+    return 1;
+  }
+
+  if(!(Strm_CmdsList >> dist_m))
+  {
+    std::cout << "Nie wczytano odległości"<< endl;
+    return 1;
+  }
+    
   return true;
 }
 

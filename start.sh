@@ -1,3 +1,3 @@
 export LD_LIBRARY_PATH="./libs";
 
-./interp
+./interp  komendy.txt

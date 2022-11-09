@@ -1,5 +1,5 @@
 __start__: obj __lines_for_space__ interp __plugin__
-	export LD_LIBRARY_PATH="./libs"; ./interp
+	export LD_LIBRARY_PATH="./libs"; ./interp komendy.txt
 
 obj:
 	mkdir obj
@@ -18,18 +18,21 @@ __plugin__:
 CPPFLAGS=-Wall -pedantic -std=c++17 -Iinc
 LDFLAGS=-Wall
 
-interp: obj/InterfaceVector.o obj/LibInterface.o obj/main.o
-	g++ ${LDFLAGS} -o interp  obj/main.o obj/InterfaceVector.o obj/LibInterface.o -ldl
+interp: obj/InterfaceVector.o obj/LibInterface.o obj/main.o obj/xmlinterp.o
+	g++ ${LDFLAGS} -o interp  obj/main.o obj/InterfaceVector.o obj/LibInterface.o obj/xmlinterp.o -ldl -lxerces-c
 
 obj/InterfaceVector.o: inc/LibInterface.hh inc/InterfaceVector.hh\
 					src/InterfaceVector.cpp
 	g++ -c ${CPPFLAGS} -o obj/InterfaceVector.o src/InterfaceVector.cpp
 
+obj/xmlinterp.o: src/xmlinterp.cpp 
+	g++ -c ${CPPFLAGS} -o obj/xmlinterp.o src/xmlinterp.cpp
+
 obj/LibInterface.o: inc/LibInterface.hh inc/Interp4Command.hh\
 					src/LibInterface.cpp
 	g++ -c ${CPPFLAGS} -o obj/LibInterface.o src/LibInterface.cpp
 
-obj/main.o: src/main.cpp inc/Interp4Command.hh inc/LibInterface.hh
+obj/main.o: src/main.cpp inc/Interp4Command.hh inc/LibInterface.hh inc/xmlinterp.hh
 	g++ -c ${CPPFLAGS} -o obj/main.o src/main.cpp
 
 clean:
