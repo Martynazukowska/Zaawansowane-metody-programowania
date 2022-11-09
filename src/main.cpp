@@ -10,6 +10,8 @@
 
 #include "InterfaceVector.hh"
 
+#include "testy.hh"
+
 #include <cstdio>
 #include <sstream>
 
@@ -24,8 +26,6 @@
 using namespace std;
 using namespace xercesc;
 #define LINE 500
-
-using namespace std;
 
 /*!
  * Czyta z pliku opis poleceń i dodaje je do listy komend,
@@ -143,14 +143,6 @@ int main(int argc, char *argv[])
   }
 
   std::vector<Interp4Command *> wskaznikiCmd;
-
-  LibInterface move("libInterp4Move.so", wolny);
-
-  LibInterface rotate("libInterp4Rotate.so", wolny);
-
-  LibInterface set("libInterp4Set.so", wolny);
-
-  LibInterface pause("libInterp4Pause.so", wolny);
  
   
   InterfaceVector Libs;
@@ -159,26 +151,9 @@ int main(int argc, char *argv[])
   Libs.CreateCmd("Pause");
   Libs.CreateCmd("Set");
 
-  // Interp4Command *wskazik=Libs["Move"]->get_Cmd();
-  // Interp4Command *wskazik1=Libs["Rotate"]->get_Cmd();
-  // Interp4Command *wskazik2=Libs["Pause"]->get_Cmd();
-  // Interp4Command *wskazik3=Libs["Set"]->get_Cmd();
-
-  // string Name;
-  // file >> Name;
-  // Interp4Command *tmp = Libs[Name]->get_Cmd();
-  // tmp->ReadParams(file);
-  // tmp->PrintSyntax();
-  // tmp->PrintCmd();
-  // delete tmp;
-
-  // string Name2;
-  // file >> Name2;
-  // Interp4Command *tmp2 = Libs[Name2]->get_Cmd();
-  // tmp2->ReadParams(file);
-  // tmp2->PrintSyntax();
-  // tmp2->PrintCmd();
-  // delete tmp2;
+  Testy test;
+  test.Czytwanie_wartości_wtyczek();
+  test.Wskazniki_i_wartosci();
 
   
   string name;
@@ -198,25 +173,5 @@ int main(int argc, char *argv[])
     cout << i++ << ". ";
     cmd->PrintCmd();
   }  
-
-
-
-  // cout<<endl;
-  // cout<<Libs["Move"]->getCmdName() <<"\n";
-  // wskazik->PrintSyntax();
-  // wskazik->PrintCmd();
-  // cout<<endl;
-
-  // cout<<Libs["Rotate"]->getCmdName()<<"\n";
-  // wskazik1->PrintSyntax();
-  // wskazik1->PrintCmd();
-  // cout<<endl;
-  // cout<<Libs["Pause"]->getCmdName()<<"\n";
-  // wskazik2->PrintSyntax();
-  // wskazik2->PrintCmd();
-  // cout<<endl;
-  // cout<<Libs["Set"]->getCmdName()<<"\n";
-  // wskazik3->PrintSyntax();
-  // wskazik3->PrintCmd();
 
 }
