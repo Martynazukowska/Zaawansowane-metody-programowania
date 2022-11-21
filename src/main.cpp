@@ -22,6 +22,9 @@
 #include "xmlinterp.hh"
 #include <iostream>
 #include <list>
+#include "Scene.hh"
+#include "Dane.hh"
+
 
 using namespace std;
 using namespace xercesc;
@@ -136,6 +139,11 @@ int main(int argc, char *argv[])
     exit(-1);
   }
 
+  Configuration   Config;
+  if (!ReadFile("config/config.xml",Config)) {
+    return 1;
+  }
+
   istringstream file;
   if ( !ExecProcesor(argv[1], file)) {
       cerr << "Niepoprawny plik do wczytania..." << endl;
@@ -151,9 +159,9 @@ int main(int argc, char *argv[])
   Libs.CreateCmd("Pause");
   Libs.CreateCmd("Set");
 
-  Testy test;
-  test.Czytwanie_wartości_wtyczek();
-  test.Wskazniki_i_wartosci();
+  // Testy test;
+  // test.Czytwanie_wartości_wtyczek();
+  // test.Wskazniki_i_wartosci();
 
   
   string name;

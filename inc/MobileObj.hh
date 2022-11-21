@@ -30,7 +30,7 @@
 	* Kąt \e yaw reprezentuje rotację zgodnie z ruchem wskazówek zegara
         * wokół osi \e OZ. Wartość kąta wyrażona jest w stopniach.
         */
-       double _Ang_Yaw_deg = 0;
+       double _Ang_Yaw_deg;
 
        /*!
         * \brief Kąt \e pitch reprezentuje rotację zgodnie z ruchem wskazówek zegara
@@ -39,7 +39,7 @@
 	* Kąt \e pitch reprezentuje rotację zgodnie z ruchem wskazówek zegara
         * wokół osi \e OY. Wartość kąta wyrażona jest w stopniach.
         */
-       double _Ang_Pitch_deg = 0;
+       double _Ang_Pitch_deg;
 
        /*!
         * \brief Kąt \e roll reprezentuje rotację zgodnie z ruchem wskazówek zegara
@@ -48,7 +48,7 @@
 	* Kąt \e roll reprezentuje rotację zgodnie z ruchem wskazówek zegara
         * wokół osi \e OX. Wartość kąta wyrażona jest w stopniach.
         */
-       double _Ang_Roll_deg = 0;
+       double _Ang_Roll_deg;
 
        /*!
         * \brief Współrzędne aktualnej pozycji obiektu.
@@ -67,6 +67,25 @@
        std::string  _Name;
 
      public:
+      /*!
+        * \brief Kontructor
+        * \param[in] name - nazwa
+        * \param[in] in_rot_deg - vektor odpowiednich kontow yaw, pitch i roll
+        * \param[in] in_pos_m - pozycja w metrach
+        */
+        MobileObj(){
+                for (int i = 0; i < 3; i++)
+                {
+                    _Position_m[i]=0;
+                }
+                _Ang_Pitch_deg=0;
+                _Ang_Roll_deg=0;
+                _Ang_Yaw_deg=0;
+                _Name=" ";
+        };
+        MobileObj(std::string name, Vector3D rot_deg, Vector3D pos_m): _Name(name), _Ang_Yaw_deg(rot_deg[0]), _Ang_Pitch_deg(rot_deg[1]),_Ang_Roll_deg(rot_deg[2]), _Position_m(pos_m)  {};
+
+        
       /*!
        * \brief Udostępia wartość kąta \e roll.
        *

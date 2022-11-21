@@ -7,6 +7,7 @@
 #include <string>
 #include <memory>
 
+#include "Configuration.hh"
 #include "MobileObj.hh"
 
 /*!
@@ -38,6 +39,10 @@
             void AddMobileObject(std::shared_ptr<MobileObj> handler);
 
             std::map<std::string, std::shared_ptr<MobileObj>> & GetMapMobileObjects() {return mapMobileObjects;}
+            std::shared_ptr<MobileObj> TakeMobileObj(const char *ObjName);
+            std::shared_ptr<MobileObj> TakeMobileObj(const std::string &ObjName);
+            std::shared_ptr<MobileObj> operator [] (std::string &Name);
+            std::shared_ptr<MobileObj> operator [] (char *Name);
     };
 
 
