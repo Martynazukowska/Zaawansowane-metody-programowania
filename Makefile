@@ -18,8 +18,8 @@ __plugin__:
 CPPFLAGS=-Wall -pedantic -std=c++17 -Iinc
 LDFLAGS=-Wall
 
-interp: obj/InterfaceVector.o obj/LibInterface.o obj/main.o obj/xmlinterp.o obj/testy.o 
-	g++ ${LDFLAGS} -o interp  obj/main.o obj/InterfaceVector.o obj/LibInterface.o obj/xmlinterp.o obj/testy.o  -ldl -lxerces-c
+interp: obj/InterfaceVector.o obj/LibInterface.o obj/main.o obj/xmlinterp.o obj/testy.o obj/Poczatek.o
+	g++ ${LDFLAGS} -o interp  obj/main.o obj/InterfaceVector.o obj/LibInterface.o obj/xmlinterp.o obj/testy.o  obj/Poczatek.o -ldl -lxerces-c
 
 obj/InterfaceVector.o: inc/LibInterface.hh inc/InterfaceVector.hh\
 					src/InterfaceVector.cpp
@@ -27,6 +27,9 @@ obj/InterfaceVector.o: inc/LibInterface.hh inc/InterfaceVector.hh\
 
 obj/xmlinterp.o: src/xmlinterp.cpp 
 	g++ -c ${CPPFLAGS} -o obj/xmlinterp.o src/xmlinterp.cpp
+
+obj/Poczatek.o: src/Poczatek.cpp 
+	g++ -c ${CPPFLAGS} -o obj/Poczatek.o src/Poczatek.cpp
 
 obj/LibInterface.o: inc/LibInterface.hh inc/Interp4Command.hh\
 					src/LibInterface.cpp
@@ -36,7 +39,7 @@ obj/testy.o: inc/testy.hh\
 					src/testy.cpp
 	g++ -c ${CPPFLAGS} -o obj/testy.o src/testy.cpp
 
-obj/main.o: src/main.cpp inc/Interp4Command.hh inc/LibInterface.hh inc/xmlinterp.hh inc/testy.hh
+obj/main.o: src/main.cpp inc/Interp4Command.hh inc/LibInterface.hh inc/xmlinterp.hh inc/testy.hh inc/Poczatek.hh
 	g++ -c ${CPPFLAGS} -o obj/main.o src/main.cpp
 
 clean:
