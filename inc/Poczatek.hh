@@ -56,16 +56,9 @@ public:
     /*!
     * \brief zwróć terazniejsza conf
     */
-    const Configuration & GetConf() const { return conf; }
+    Configuration & GetConf(){return conf; }
 
-//   Scene Scena;
-//   InterfaceVector _LibMenager;
-//   int Socket2Serv = 2877;
-//   Configuration *rConfig;
-//   ProgramInterpreter();
-//   bool ExecProgram(const char* FileName);
-//   bool SendSceneState2Server();
-//   bool Read_XML_Config(const char* sFileName);
+
 };
 
 

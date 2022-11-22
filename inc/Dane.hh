@@ -51,7 +51,7 @@
                 MobileObj();
                 for (int i = 0; i < 3; i++)
                 {
-                    scale[i]=0;
+                    scale[i]=1;
                     colorRGB[i]=0;
                     _Shift[i]=0;
                 }
@@ -69,7 +69,12 @@
             * \return Zwraca Vektor3D [red,green,blue]
             * 
             */
-            const Vector3D & GetColorR(){return colorRGB;}
+            const Vector3D & GetColor(){return colorRGB;}
+            const Vector3D & GetShift(){return _Shift;}
+
+            void SetShift(Vector3D shift) { _Shift = shift; }		
+            void SetScale(Vector3D skala) { scale = skala; }
+            void SetRGB(Vector3D rgb) { colorRGB = rgb; }
     };
 
 

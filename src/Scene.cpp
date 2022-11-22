@@ -1,33 +1,23 @@
 #include "Scene.hh"
 
-// bool Scene::FindMobileObject (std::string name, std::shared_ptr<MobileObj> & tempMobileObject)
-// {
-//     std::map<std::string, std::shared_ptr<MobileObj>>::iterator it;
-    
-//     it = mapMobileObjects.find(name);
-    
-//     if(it == mapMobileObjects.end())
-//     {
-//         std::cout << "Nie znaleziono obiektu: " << name << std::endl;
-//         return false;
-//     }
-
-//     tempMobileObject = it->second;
-    
-//     return true;
-// }
-
 Scene::Scene(){
 }
 
 Scene::~Scene(){
 }
 
-void Scene::AddMobileObject(std::shared_ptr<MobileObj> handler)
-{
-    mapMobileObjects.insert(std::make_pair(handler->GetName(), handler));
-}
 
+void Scene::AddMobileObject(Configuration *pConfig)
+{
+  for(unsigned long int i = 0; i < pConfig->GetObjVector().size(); ++i) 
+  {
+    std::shared_ptr<MobileObj> tmp = std::make_shared<MobileObj>();
+    tmp->SetPosition_m(pConfig->GetObjVector()[i].GetPosition_m());
+    tmp->SetName(pConfig->GetObjVector()[i].GetName().c_str());
+    tmp->SetAng_Yaw_deg(pConfig->GetObjVector()[i].GetAng_Yaw_deg());
+    mapMobileObjects[tmp->GetName()] = tmp;
+  }
+}
 std::shared_ptr<MobileObj> Scene::operator [] (std::string &Name){
   return mapMobileObjects[Name];
 }

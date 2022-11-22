@@ -31,8 +31,7 @@ bool Poczatek::PoczatekXML()
    pParser->setFeature(XMLUni::fgXercesSchema, true);
    pParser->setFeature(XMLUni::fgXercesSchemaFullChecking, true);
    pParser->setFeature(XMLUni::fgXercesValidationErrorAsFatal, true);
-     std::cerr<<"DUPA";
-   DefaultHandler* pHandler = new XMLInterp4Config(conf);
+   DefaultHandler* pHandler = new XMLInterp4Config(&conf);
    pParser->setContentHandler(pHandler);
    pParser->setErrorHandler(pHandler);
 
@@ -98,3 +97,4 @@ bool Poczatek::PoczatekCmd(std::istringstream & IStrm4Cmds)
 
     return pclose(pProc) == 0;
 }
+

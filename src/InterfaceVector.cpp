@@ -35,6 +35,9 @@ void InterfaceVector::CreateCmd(std::string Cmd)
         _LibHandlers[Cmd] = LibPlugin;
         _LibHandlers[Cmd]->CreateCmd();
     }
+    const char* name = Cmd.c_str();
+    std::shared_ptr<LibInterface> tmp = std::make_shared<LibInterface>(name,wolny);
+    _LibHandlers[tmp->getCmdName()] = tmp;
 
 }
 

@@ -433,5 +433,17 @@ std::ostream & operator << ( std::ostream &OStrm, const geom::Vector<Type,Size> 
 }
 
 
+template<typename Type, unsigned int Size>
+inline
+std::istream & operator >> ( std::istream &Strm, geom::Vector<Type,Size> &V)
+{
+   for (unsigned int Ind = 0; Ind < Size; ++Ind) 
+   {
+     Strm >> V[Ind];
+   }
+   return Strm;
+}
+
+
 
 #endif

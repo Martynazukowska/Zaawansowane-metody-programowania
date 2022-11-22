@@ -36,7 +36,9 @@
             * \param[in] handler - pointer to mobile object to be added to scene
             * 
             */
-            void AddMobileObject(std::shared_ptr<MobileObj> handler);
+           Scene();
+           ~Scene();
+            void AddMobileObject(Configuration *pConfig);
 
             std::map<std::string, std::shared_ptr<MobileObj>> & GetMapMobileObjects() {return mapMobileObjects;}
             std::shared_ptr<MobileObj> TakeMobileObj(const char *ObjName);
