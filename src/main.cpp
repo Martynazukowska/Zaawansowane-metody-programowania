@@ -28,6 +28,7 @@
 #include "Scene.hh"
 #include "Dane.hh"
 #include "Poczatek.hh"
+#include "klient.hh"
 
 
 using namespace std;
