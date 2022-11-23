@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "MobileObj.hh"
+#include "Scene.hh"
 
 /*!
  * \file
@@ -39,11 +40,13 @@
    /*!
     * \brief Wykonuje polecenie oraz wizualizuje jego realizację.
     */
-   virtual bool ExecCmd( MobileObj *pMobObj, int Socket ) const = 0;
+   //virtual bool ExecCmd( MobileObj *pMobObj, int Socket ) const = 0;
    /*!
     * \brief Czyta wartości parametrów danego polecenia.
     */
    virtual bool ReadParams(std::istream& Strm_CmdsList) = 0;
+
+   virtual bool ExecCmd( Scene *Scena, int Socket ) const = 0;
  };
 
 #endif

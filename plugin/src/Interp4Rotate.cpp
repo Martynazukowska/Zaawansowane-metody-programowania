@@ -53,10 +53,20 @@ const char* Interp4Rotate::GetCmdName() const
 }
 
 
+// /*!
+//  *
+//  */
+// bool Interp4Rotate::ExecCmd( MobileObj  *pMobObj,  int  Socket) const
+// {
+//   /*
+//    *  Tu trzeba napisać odpowiedni kod.
+//    */
+//   return true;
+// }
 /*!
  *
  */
-bool Interp4Rotate::ExecCmd( MobileObj  *pMobObj,  int  Socket) const
+bool Interp4Rotate::ExecCmd( Scene  *Scena,  int  Socket) const
 {
   /*
    *  Tu trzeba napisać odpowiedni kod.

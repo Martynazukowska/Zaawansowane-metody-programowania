@@ -9,20 +9,22 @@
 #include "LibInterface.hh"
 
 #include "InterfaceVector.hh"
-#include "ProgramInterpreter.hh"
 
 #include "testy.hh"
 
 #include <cstdio>
 #include <sstream>
 
-#include <xercesc/sax2/SAX2XMLReader.hpp>
-#include <xercesc/sax2/XMLReaderFactory.hpp>
-#include <xercesc/sax2/DefaultHandler.hpp>
-#include <xercesc/util/XMLString.hpp>
-#include "xmlinterp.hh"
-#include <iostream>
-#include <list>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <unistd.h>
+#include <thread>
+#include <mutex>
+
+
+#define PORT 2877
 #include "Scene.hh"
 #include "Dane.hh"
 #include "Poczatek.hh"
@@ -31,6 +33,39 @@
 using namespace std;
 using namespace xercesc;
 #define LINE 500
+
+/*!
+ * Otwiera połączenie sieciowe
+ * \param[out]  rSocket - deskryptor gniazda, poprzez które może być
+ *                        realizowana komunikacja sieciowa.
+ */
+bool OpenConnection(int &rSocket)
+{
+  struct sockaddr_in  DaneAdSerw;
+
+  bzero((char *)&DaneAdSerw,sizeof(DaneAdSerw));
+
+  DaneAdSerw.sin_family = AF_INET;
+  DaneAdSerw.sin_addr.s_addr = inet_addr("127.0.0.1");
+  DaneAdSerw.sin_port = htons(PORT);
+
+
+  rSocket = socket(AF_INET,SOCK_STREAM,0);
+
+  if (rSocket < 0) {
+     cerr << "*** Blad otwarcia gniazda." << endl;
+     return false;
+  }
+
+  if (connect(rSocket,(struct sockaddr*)&DaneAdSerw,sizeof(DaneAdSerw)) < 0)
+   {
+     cerr << "*** Brak mozliwosci polaczenia do portu: " << PORT << endl;
+     return false;
+   }
+  return true;
+}
+
+
 
 
 
@@ -56,6 +91,7 @@ int main(int argc, char *argv[])
   }
 
 
+
   std::vector<Interp4Command *> wskaznikiCmd;
  
   
@@ -65,17 +101,18 @@ int main(int argc, char *argv[])
   // Libs.CreateCmd("Pause");
   // Libs.CreateCmd("Set");
 
-  ProgramInterpreter Szef;
+  //ProgramInterpreter Szef;
+
 
   for(unsigned long int i = 0; i < Parserl.GetConf().GetLibsVector().size(); ++i) 
   {
-    Szef.Lib.CreateCmd(Parserl.GetConf().GetLibsVector()[i]);
+    Parserl.Lib.CreateCmd(Parserl.GetConf().GetLibsVector()[i]);
   }
 
 
-  Szef.Scena.AddMobileObject(&Parserl.GetConf());
+  Parserl.Scena.AddMobileObject(&Parserl.GetConf());
 
-  std::cout << endl << Szef.Scena["Podstawa"]->GetPosition_m() << endl;
+  std::cout << endl << Parserl.Scena["Podstawa"]->GetPosition_m() << endl;
   std::cerr << Parserl.GetConf().GetObjVector()[0].GetName()<<endl;
   std::cerr << Parserl.GetConf().GetObjVector()[0].GetAng_Roll_deg()<<endl;
   std::cerr << Parserl.GetConf().GetObjVector()[0].GetAng_Pitch_deg()<<endl;
@@ -84,6 +121,12 @@ int main(int argc, char *argv[])
   std::cerr << Parserl.GetConf().GetObjVector()[0].GetScale()<<endl;
   std::cerr << Parserl.GetConf().GetObjVector()[0].GetShift()<<endl;
   std::cerr << Parserl.GetConf().GetObjVector()[0].GetColor()<<endl;
+
+  if (!OpenConnection(Parserl.socket_manager)) 
+  {
+    return 1;
+  }
+  Parserl.SendScene();
   // Testy test;
   // test.Czytwanie_wartości_wtyczek();
   // test.Wskazniki_i_wartosci();
@@ -106,5 +149,6 @@ int main(int argc, char *argv[])
   //   cout << i++ << ". ";
   //   cmd->PrintCmd();
   // }  
-
+  Parserl.Send("Close\n");
+  close(Parserl.socket_manager);
 }

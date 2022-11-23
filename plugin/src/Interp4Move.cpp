@@ -56,7 +56,18 @@ const char* Interp4Move::GetCmdName() const
 /*!
  *
  */
-bool Interp4Move::ExecCmd( MobileObj  *pMobObj,  int  Socket) const
+// bool Interp4Move::ExecCmd( MobileObj  *pMobObj,  int  Socket) const
+// {
+//   /*
+//    *  Tu trzeba napisać odpowiedni kod.
+//    */
+//   return true;
+// }
+
+/*!
+ *
+ */
+bool Interp4Move::ExecCmd( Scene  *Scena,  int  Socket) const
 {
   /*
    *  Tu trzeba napisać odpowiedni kod.

@@ -52,22 +52,22 @@ OBJECTS_DIR   = /tmp/martyna/serwer_graficzny/out/obj/
 
 ####### Files
 
-SOURCES       = src/gsv-BufferedScene.cpp \
-		src/gsv-CommandBuffer.cpp \
-		src/gsv-CommandInterpreter.cpp \
-		src/gsv-Cuboid.cpp \
-		src/gsv-GeomParams.cpp \
-		src/gsv-GraphObject.cpp \
-		src/gsv-GraphicsWindow.cpp \
-		src/gsv-Map4DescGeomObjs.cpp \
-		src/gsv-Map4SceneGeomObjs.cpp \
-		src/gsv-Scene.cpp \
-		src/gsv-SceneServer.cpp \
-		src/gsv-ServerCommand.cpp \
-		src/gsv-Tests.cpp \
-		src/gsv-WgViewer3D.cpp \
-		src/gtsDebug.cpp \
-		src/main.cpp /tmp/martyna/serwer_graficzny/out/moc/moc_gsv-GraphicsWindow.cpp \
+SOURCES       = ../../serwer-z-tlem/src/gsv-BufferedScene.cpp \
+		../../serwer-z-tlem/src/gsv-CommandBuffer.cpp \
+		../../serwer-z-tlem/src/gsv-CommandInterpreter.cpp \
+		../../serwer-z-tlem/src/gsv-Cuboid.cpp \
+		../../serwer-z-tlem/src/gsv-GeomParams.cpp \
+		../../serwer-z-tlem/src/gsv-GraphObject.cpp \
+		../../serwer-z-tlem/src/gsv-GraphicsWindow.cpp \
+		../../serwer-z-tlem/src/gsv-Map4DescGeomObjs.cpp \
+		../../serwer-z-tlem/src/gsv-Map4SceneGeomObjs.cpp \
+		../../serwer-z-tlem/src/gsv-Scene.cpp \
+		../../serwer-z-tlem/src/gsv-SceneServer.cpp \
+		../../serwer-z-tlem/src/gsv-ServerCommand.cpp \
+		../../serwer-z-tlem/src/gsv-Tests.cpp \
+		../../serwer-z-tlem/src/gsv-WgViewer3D.cpp \
+		../../serwer-z-tlem/src/gtsDebug.cpp \
+		../../serwer-z-tlem/src/main.cpp /tmp/martyna/serwer_graficzny/out/moc/moc_gsv-GraphicsWindow.cpp \
 		/tmp/martyna/serwer_graficzny/out/moc/moc_gsv-WgViewer3D.cpp
 OBJECTS       = /tmp/martyna/serwer_graficzny/out/obj/gsv-BufferedScene.o \
 		/tmp/martyna/serwer_graficzny/out/obj/gsv-CommandBuffer.o \
@@ -166,40 +166,40 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		/tmp/martyna/serwer_graficzny/out/pro/serwer_graficzny.pro inc/geomVector.hh \
-		inc/gsv-AnglesRPY.hh \
-		inc/gsv-BufferedScene.hh \
-		inc/gsv-CommandBuffer.hh \
-		inc/gsv-CommandInterpreter.hh \
-		inc/gsv-Cuboid.hh \
-		inc/gsv-GeomParams.hh \
-		inc/gsv-GraphObject.hh \
-		inc/gsv-GraphicsWindow.hh \
-		inc/gsv-Map4DescGeomObjs.hh \
-		inc/gsv-Map4SceneGeomObjs.hh \
-		inc/gsv-RGB.hh \
-		inc/gsv-Scene.hh \
-		inc/gsv-SceneServer.hh \
-		inc/gsv-ServerCommand.hh \
-		inc/gsv-Vector3d.hh \
-		inc/gsv-Vector3i.hh \
-		inc/gsv-WgViewer3D.hh \
-		inc/gtsDebug.hh src/gsv-BufferedScene.cpp \
-		src/gsv-CommandBuffer.cpp \
-		src/gsv-CommandInterpreter.cpp \
-		src/gsv-Cuboid.cpp \
-		src/gsv-GeomParams.cpp \
-		src/gsv-GraphObject.cpp \
-		src/gsv-GraphicsWindow.cpp \
-		src/gsv-Map4DescGeomObjs.cpp \
-		src/gsv-Map4SceneGeomObjs.cpp \
-		src/gsv-Scene.cpp \
-		src/gsv-SceneServer.cpp \
-		src/gsv-ServerCommand.cpp \
-		src/gsv-Tests.cpp \
-		src/gsv-WgViewer3D.cpp \
-		src/gtsDebug.cpp \
-		src/main.cpp
+		/tmp/martyna/serwer_graficzny/out/pro/serwer_graficzny.pro ../../serwer-z-tlem/inc/geomVector.hh \
+		../../serwer-z-tlem/inc/gsv-AnglesRPY.hh \
+		../../serwer-z-tlem/inc/gsv-BufferedScene.hh \
+		../../serwer-z-tlem/inc/gsv-CommandBuffer.hh \
+		../../serwer-z-tlem/inc/gsv-CommandInterpreter.hh \
+		../../serwer-z-tlem/inc/gsv-Cuboid.hh \
+		../../serwer-z-tlem/inc/gsv-GeomParams.hh \
+		../../serwer-z-tlem/inc/gsv-GraphObject.hh \
+		../../serwer-z-tlem/inc/gsv-GraphicsWindow.hh \
+		../../serwer-z-tlem/inc/gsv-Map4DescGeomObjs.hh \
+		../../serwer-z-tlem/inc/gsv-Map4SceneGeomObjs.hh \
+		../../serwer-z-tlem/inc/gsv-RGB.hh \
+		../../serwer-z-tlem/inc/gsv-Scene.hh \
+		../../serwer-z-tlem/inc/gsv-SceneServer.hh \
+		../../serwer-z-tlem/inc/gsv-ServerCommand.hh \
+		../../serwer-z-tlem/inc/gsv-Vector3d.hh \
+		../../serwer-z-tlem/inc/gsv-Vector3i.hh \
+		../../serwer-z-tlem/inc/gsv-WgViewer3D.hh \
+		../../serwer-z-tlem/inc/gtsDebug.hh ../../serwer-z-tlem/src/gsv-BufferedScene.cpp \
+		../../serwer-z-tlem/src/gsv-CommandBuffer.cpp \
+		../../serwer-z-tlem/src/gsv-CommandInterpreter.cpp \
+		../../serwer-z-tlem/src/gsv-Cuboid.cpp \
+		../../serwer-z-tlem/src/gsv-GeomParams.cpp \
+		../../serwer-z-tlem/src/gsv-GraphObject.cpp \
+		../../serwer-z-tlem/src/gsv-GraphicsWindow.cpp \
+		../../serwer-z-tlem/src/gsv-Map4DescGeomObjs.cpp \
+		../../serwer-z-tlem/src/gsv-Map4SceneGeomObjs.cpp \
+		../../serwer-z-tlem/src/gsv-Scene.cpp \
+		../../serwer-z-tlem/src/gsv-SceneServer.cpp \
+		../../serwer-z-tlem/src/gsv-ServerCommand.cpp \
+		../../serwer-z-tlem/src/gsv-Tests.cpp \
+		../../serwer-z-tlem/src/gsv-WgViewer3D.cpp \
+		../../serwer-z-tlem/src/gtsDebug.cpp \
+		../../serwer-z-tlem/src/main.cpp
 QMAKE_TARGET  = serwer_graficzny
 DESTDIR       = /tmp/martyna/serwer_graficzny/
 TARGET        = /tmp/martyna/serwer_graficzny/serwer_graficzny
@@ -390,8 +390,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents inc/geomVector.hh inc/gsv-AnglesRPY.hh inc/gsv-BufferedScene.hh inc/gsv-CommandBuffer.hh inc/gsv-CommandInterpreter.hh inc/gsv-Cuboid.hh inc/gsv-GeomParams.hh inc/gsv-GraphObject.hh inc/gsv-GraphicsWindow.hh inc/gsv-Map4DescGeomObjs.hh inc/gsv-Map4SceneGeomObjs.hh inc/gsv-RGB.hh inc/gsv-Scene.hh inc/gsv-SceneServer.hh inc/gsv-ServerCommand.hh inc/gsv-Vector3d.hh inc/gsv-Vector3i.hh inc/gsv-WgViewer3D.hh inc/gtsDebug.hh $(DISTDIR)/
-	$(COPY_FILE) --parents src/gsv-BufferedScene.cpp src/gsv-CommandBuffer.cpp src/gsv-CommandInterpreter.cpp src/gsv-Cuboid.cpp src/gsv-GeomParams.cpp src/gsv-GraphObject.cpp src/gsv-GraphicsWindow.cpp src/gsv-Map4DescGeomObjs.cpp src/gsv-Map4SceneGeomObjs.cpp src/gsv-Scene.cpp src/gsv-SceneServer.cpp src/gsv-ServerCommand.cpp src/gsv-Tests.cpp src/gsv-WgViewer3D.cpp src/gtsDebug.cpp src/main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../serwer-z-tlem/inc/geomVector.hh ../../serwer-z-tlem/inc/gsv-AnglesRPY.hh ../../serwer-z-tlem/inc/gsv-BufferedScene.hh ../../serwer-z-tlem/inc/gsv-CommandBuffer.hh ../../serwer-z-tlem/inc/gsv-CommandInterpreter.hh ../../serwer-z-tlem/inc/gsv-Cuboid.hh ../../serwer-z-tlem/inc/gsv-GeomParams.hh ../../serwer-z-tlem/inc/gsv-GraphObject.hh ../../serwer-z-tlem/inc/gsv-GraphicsWindow.hh ../../serwer-z-tlem/inc/gsv-Map4DescGeomObjs.hh ../../serwer-z-tlem/inc/gsv-Map4SceneGeomObjs.hh ../../serwer-z-tlem/inc/gsv-RGB.hh ../../serwer-z-tlem/inc/gsv-Scene.hh ../../serwer-z-tlem/inc/gsv-SceneServer.hh ../../serwer-z-tlem/inc/gsv-ServerCommand.hh ../../serwer-z-tlem/inc/gsv-Vector3d.hh ../../serwer-z-tlem/inc/gsv-Vector3i.hh ../../serwer-z-tlem/inc/gsv-WgViewer3D.hh ../../serwer-z-tlem/inc/gtsDebug.hh $(DISTDIR)/
+	$(COPY_FILE) --parents ../../serwer-z-tlem/src/gsv-BufferedScene.cpp ../../serwer-z-tlem/src/gsv-CommandBuffer.cpp ../../serwer-z-tlem/src/gsv-CommandInterpreter.cpp ../../serwer-z-tlem/src/gsv-Cuboid.cpp ../../serwer-z-tlem/src/gsv-GeomParams.cpp ../../serwer-z-tlem/src/gsv-GraphObject.cpp ../../serwer-z-tlem/src/gsv-GraphicsWindow.cpp ../../serwer-z-tlem/src/gsv-Map4DescGeomObjs.cpp ../../serwer-z-tlem/src/gsv-Map4SceneGeomObjs.cpp ../../serwer-z-tlem/src/gsv-Scene.cpp ../../serwer-z-tlem/src/gsv-SceneServer.cpp ../../serwer-z-tlem/src/gsv-ServerCommand.cpp ../../serwer-z-tlem/src/gsv-Tests.cpp ../../serwer-z-tlem/src/gsv-WgViewer3D.cpp ../../serwer-z-tlem/src/gtsDebug.cpp ../../serwer-z-tlem/src/main.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -426,37 +426,37 @@ compiler_moc_predefs_clean:
 compiler_moc_header_make_all: /tmp/martyna/serwer_graficzny/out/moc/moc_gsv-GraphicsWindow.cpp /tmp/martyna/serwer_graficzny/out/moc/moc_gsv-WgViewer3D.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) /tmp/martyna/serwer_graficzny/out/moc/moc_gsv-GraphicsWindow.cpp /tmp/martyna/serwer_graficzny/out/moc/moc_gsv-WgViewer3D.cpp
-/tmp/martyna/serwer_graficzny/out/moc/moc_gsv-GraphicsWindow.cpp: inc/gsv-GraphicsWindow.hh \
-		inc/gsv-BufferedScene.hh \
-		inc/gsv-Scene.hh \
-		inc/gsv-GraphObject.hh \
-		inc/gsv-Map4DescGeomObjs.hh \
-		inc/gsv-GeomParams.hh \
-		inc/gsv-Vector3d.hh \
-		inc/geomVector.hh \
-		inc/gsv-RGB.hh \
-		inc/gsv-Vector3i.hh \
-		inc/gsv-AnglesRPY.hh \
-		inc/gsv-Map4SceneGeomObjs.hh \
+/tmp/martyna/serwer_graficzny/out/moc/moc_gsv-GraphicsWindow.cpp: ../../serwer-z-tlem/inc/gsv-GraphicsWindow.hh \
+		../../serwer-z-tlem/inc/gsv-BufferedScene.hh \
+		../../serwer-z-tlem/inc/gsv-Scene.hh \
+		../../serwer-z-tlem/inc/gsv-GraphObject.hh \
+		../../serwer-z-tlem/inc/gsv-Map4DescGeomObjs.hh \
+		../../serwer-z-tlem/inc/gsv-GeomParams.hh \
+		../../serwer-z-tlem/inc/gsv-Vector3d.hh \
+		../../serwer-z-tlem/inc/geomVector.hh \
+		../../serwer-z-tlem/inc/gsv-RGB.hh \
+		../../serwer-z-tlem/inc/gsv-Vector3i.hh \
+		../../serwer-z-tlem/inc/gsv-AnglesRPY.hh \
+		../../serwer-z-tlem/inc/gsv-Map4SceneGeomObjs.hh \
 		/tmp/martyna/serwer_graficzny/out/moc/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /tmp/martyna/serwer_graficzny/out/moc/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/tmp/martyna/serwer_graficzny/out/pro -I/tmp/martyna/serwer_graficzny/out/pro/inc -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtOpenGL -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include inc/gsv-GraphicsWindow.hh -o /tmp/martyna/serwer_graficzny/out/moc/moc_gsv-GraphicsWindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /tmp/martyna/serwer_graficzny/out/moc/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/tmp/martyna/serwer_graficzny/out/pro -I/tmp/martyna/serwer_graficzny/out/pro/inc -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtOpenGL -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../serwer-z-tlem/inc/gsv-GraphicsWindow.hh -o /tmp/martyna/serwer_graficzny/out/moc/moc_gsv-GraphicsWindow.cpp
 
-/tmp/martyna/serwer_graficzny/out/moc/moc_gsv-WgViewer3D.cpp: inc/gsv-WgViewer3D.hh \
-		inc/gsv-BufferedScene.hh \
-		inc/gsv-Scene.hh \
-		inc/gsv-GraphObject.hh \
-		inc/gsv-Map4DescGeomObjs.hh \
-		inc/gsv-GeomParams.hh \
-		inc/gsv-Vector3d.hh \
-		inc/geomVector.hh \
-		inc/gsv-RGB.hh \
-		inc/gsv-Vector3i.hh \
-		inc/gsv-AnglesRPY.hh \
-		inc/gsv-Map4SceneGeomObjs.hh \
+/tmp/martyna/serwer_graficzny/out/moc/moc_gsv-WgViewer3D.cpp: ../../serwer-z-tlem/inc/gsv-WgViewer3D.hh \
+		../../serwer-z-tlem/inc/gsv-BufferedScene.hh \
+		../../serwer-z-tlem/inc/gsv-Scene.hh \
+		../../serwer-z-tlem/inc/gsv-GraphObject.hh \
+		../../serwer-z-tlem/inc/gsv-Map4DescGeomObjs.hh \
+		../../serwer-z-tlem/inc/gsv-GeomParams.hh \
+		../../serwer-z-tlem/inc/gsv-Vector3d.hh \
+		../../serwer-z-tlem/inc/geomVector.hh \
+		../../serwer-z-tlem/inc/gsv-RGB.hh \
+		../../serwer-z-tlem/inc/gsv-Vector3i.hh \
+		../../serwer-z-tlem/inc/gsv-AnglesRPY.hh \
+		../../serwer-z-tlem/inc/gsv-Map4SceneGeomObjs.hh \
 		/tmp/martyna/serwer_graficzny/out/moc/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /tmp/martyna/serwer_graficzny/out/moc/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/tmp/martyna/serwer_graficzny/out/pro -I/tmp/martyna/serwer_graficzny/out/pro/inc -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtOpenGL -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include inc/gsv-WgViewer3D.hh -o /tmp/martyna/serwer_graficzny/out/moc/moc_gsv-WgViewer3D.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /tmp/martyna/serwer_graficzny/out/moc/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/tmp/martyna/serwer_graficzny/out/pro -I/tmp/martyna/serwer_graficzny/out/pro/inc -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtOpenGL -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../serwer-z-tlem/inc/gsv-WgViewer3D.hh -o /tmp/martyna/serwer_graficzny/out/moc/moc_gsv-WgViewer3D.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -474,7 +474,7 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 
 ####### Compile
 
-/tmp/martyna/serwer_graficzny/out/obj/gsv-BufferedScene.o: src/gsv-BufferedScene.cpp inc/gsv-BufferedScene.hh \
+/tmp/martyna/serwer_graficzny/out/obj/gsv-BufferedScene.o: ../../serwer-z-tlem/src/gsv-BufferedScene.cpp inc/gsv-BufferedScene.hh \
 		inc/gsv-Scene.hh \
 		inc/gsv-GraphObject.hh \
 		inc/gsv-Map4DescGeomObjs.hh \
@@ -485,12 +485,12 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 		inc/gsv-Vector3i.hh \
 		inc/gsv-AnglesRPY.hh \
 		inc/gsv-Map4SceneGeomObjs.hh
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-BufferedScene.o src/gsv-BufferedScene.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-BufferedScene.o ../../serwer-z-tlem/src/gsv-BufferedScene.cpp
 
-/tmp/martyna/serwer_graficzny/out/obj/gsv-CommandBuffer.o: src/gsv-CommandBuffer.cpp inc/gsv-CommandBuffer.hh
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-CommandBuffer.o src/gsv-CommandBuffer.cpp
+/tmp/martyna/serwer_graficzny/out/obj/gsv-CommandBuffer.o: ../../serwer-z-tlem/src/gsv-CommandBuffer.cpp inc/gsv-CommandBuffer.hh
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-CommandBuffer.o ../../serwer-z-tlem/src/gsv-CommandBuffer.cpp
 
-/tmp/martyna/serwer_graficzny/out/obj/gsv-CommandInterpreter.o: src/gsv-CommandInterpreter.cpp inc/gtsDebug.hh \
+/tmp/martyna/serwer_graficzny/out/obj/gsv-CommandInterpreter.o: ../../serwer-z-tlem/src/gsv-CommandInterpreter.cpp inc/gtsDebug.hh \
 		inc/gsv-CommandInterpreter.hh \
 		inc/gsv-BufferedScene.hh \
 		inc/gsv-Scene.hh \
@@ -505,9 +505,9 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 		inc/gsv-Map4SceneGeomObjs.hh \
 		inc/gsv-CommandBuffer.hh \
 		inc/gsv-ServerCommand.hh
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-CommandInterpreter.o src/gsv-CommandInterpreter.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-CommandInterpreter.o ../../serwer-z-tlem/src/gsv-CommandInterpreter.cpp
 
-/tmp/martyna/serwer_graficzny/out/obj/gsv-Cuboid.o: src/gsv-Cuboid.cpp inc/gsv-Cuboid.hh \
+/tmp/martyna/serwer_graficzny/out/obj/gsv-Cuboid.o: ../../serwer-z-tlem/src/gsv-Cuboid.cpp inc/gsv-Cuboid.hh \
 		inc/gsv-GraphObject.hh \
 		inc/gsv-Map4DescGeomObjs.hh \
 		inc/gsv-GeomParams.hh \
@@ -517,17 +517,17 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 		inc/gsv-Vector3i.hh \
 		inc/gsv-AnglesRPY.hh \
 		inc/gtsDebug.hh
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-Cuboid.o src/gsv-Cuboid.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-Cuboid.o ../../serwer-z-tlem/src/gsv-Cuboid.cpp
 
-/tmp/martyna/serwer_graficzny/out/obj/gsv-GeomParams.o: src/gsv-GeomParams.cpp inc/gsv-GeomParams.hh \
+/tmp/martyna/serwer_graficzny/out/obj/gsv-GeomParams.o: ../../serwer-z-tlem/src/gsv-GeomParams.cpp inc/gsv-GeomParams.hh \
 		inc/gsv-Vector3d.hh \
 		inc/geomVector.hh \
 		inc/gsv-RGB.hh \
 		inc/gsv-Vector3i.hh \
 		inc/gsv-AnglesRPY.hh
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-GeomParams.o src/gsv-GeomParams.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-GeomParams.o ../../serwer-z-tlem/src/gsv-GeomParams.cpp
 
-/tmp/martyna/serwer_graficzny/out/obj/gsv-GraphObject.o: src/gsv-GraphObject.cpp inc/gsv-GraphObject.hh \
+/tmp/martyna/serwer_graficzny/out/obj/gsv-GraphObject.o: ../../serwer-z-tlem/src/gsv-GraphObject.cpp inc/gsv-GraphObject.hh \
 		inc/gsv-Map4DescGeomObjs.hh \
 		inc/gsv-GeomParams.hh \
 		inc/gsv-Vector3d.hh \
@@ -535,9 +535,9 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 		inc/gsv-RGB.hh \
 		inc/gsv-Vector3i.hh \
 		inc/gsv-AnglesRPY.hh
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-GraphObject.o src/gsv-GraphObject.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-GraphObject.o ../../serwer-z-tlem/src/gsv-GraphObject.cpp
 
-/tmp/martyna/serwer_graficzny/out/obj/gsv-GraphicsWindow.o: src/gsv-GraphicsWindow.cpp inc/gsv-GraphicsWindow.hh \
+/tmp/martyna/serwer_graficzny/out/obj/gsv-GraphicsWindow.o: ../../serwer-z-tlem/src/gsv-GraphicsWindow.cpp inc/gsv-GraphicsWindow.hh \
 		inc/gsv-BufferedScene.hh \
 		inc/gsv-Scene.hh \
 		inc/gsv-GraphObject.hh \
@@ -550,9 +550,9 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 		inc/gsv-AnglesRPY.hh \
 		inc/gsv-Map4SceneGeomObjs.hh \
 		inc/gsv-WgViewer3D.hh
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-GraphicsWindow.o src/gsv-GraphicsWindow.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-GraphicsWindow.o ../../serwer-z-tlem/src/gsv-GraphicsWindow.cpp
 
-/tmp/martyna/serwer_graficzny/out/obj/gsv-Map4DescGeomObjs.o: src/gsv-Map4DescGeomObjs.cpp inc/gsv-Map4DescGeomObjs.hh \
+/tmp/martyna/serwer_graficzny/out/obj/gsv-Map4DescGeomObjs.o: ../../serwer-z-tlem/src/gsv-Map4DescGeomObjs.cpp inc/gsv-Map4DescGeomObjs.hh \
 		inc/gtsDebug.hh \
 		inc/gsv-GraphObject.hh \
 		inc/gsv-GeomParams.hh \
@@ -561,9 +561,9 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 		inc/gsv-RGB.hh \
 		inc/gsv-Vector3i.hh \
 		inc/gsv-AnglesRPY.hh
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-Map4DescGeomObjs.o src/gsv-Map4DescGeomObjs.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-Map4DescGeomObjs.o ../../serwer-z-tlem/src/gsv-Map4DescGeomObjs.cpp
 
-/tmp/martyna/serwer_graficzny/out/obj/gsv-Map4SceneGeomObjs.o: src/gsv-Map4SceneGeomObjs.cpp inc/gsv-Map4SceneGeomObjs.hh \
+/tmp/martyna/serwer_graficzny/out/obj/gsv-Map4SceneGeomObjs.o: ../../serwer-z-tlem/src/gsv-Map4SceneGeomObjs.cpp inc/gsv-Map4SceneGeomObjs.hh \
 		inc/gsv-Map4DescGeomObjs.hh \
 		inc/gtsDebug.hh \
 		inc/gsv-GraphObject.hh \
@@ -573,9 +573,9 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 		inc/gsv-RGB.hh \
 		inc/gsv-Vector3i.hh \
 		inc/gsv-AnglesRPY.hh
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-Map4SceneGeomObjs.o src/gsv-Map4SceneGeomObjs.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-Map4SceneGeomObjs.o ../../serwer-z-tlem/src/gsv-Map4SceneGeomObjs.cpp
 
-/tmp/martyna/serwer_graficzny/out/obj/gsv-Scene.o: src/gsv-Scene.cpp inc/gsv-Scene.hh \
+/tmp/martyna/serwer_graficzny/out/obj/gsv-Scene.o: ../../serwer-z-tlem/src/gsv-Scene.cpp inc/gsv-Scene.hh \
 		inc/gsv-GraphObject.hh \
 		inc/gsv-Map4DescGeomObjs.hh \
 		inc/gsv-GeomParams.hh \
@@ -586,9 +586,9 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 		inc/gsv-AnglesRPY.hh \
 		inc/gsv-Map4SceneGeomObjs.hh \
 		inc/gsv-Cuboid.hh
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-Scene.o src/gsv-Scene.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-Scene.o ../../serwer-z-tlem/src/gsv-Scene.cpp
 
-/tmp/martyna/serwer_graficzny/out/obj/gsv-SceneServer.o: src/gsv-SceneServer.cpp inc/gsv-SceneServer.hh \
+/tmp/martyna/serwer_graficzny/out/obj/gsv-SceneServer.o: ../../serwer-z-tlem/src/gsv-SceneServer.cpp inc/gsv-SceneServer.hh \
 		inc/gsv-Scene.hh \
 		inc/gsv-GraphObject.hh \
 		inc/gsv-Map4DescGeomObjs.hh \
@@ -604,9 +604,9 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 		inc/gsv-CommandBuffer.hh \
 		inc/gsv-ServerCommand.hh \
 		inc/gtsDebug.hh
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-SceneServer.o src/gsv-SceneServer.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-SceneServer.o ../../serwer-z-tlem/src/gsv-SceneServer.cpp
 
-/tmp/martyna/serwer_graficzny/out/obj/gsv-ServerCommand.o: src/gsv-ServerCommand.cpp inc/gsv-ServerCommand.hh \
+/tmp/martyna/serwer_graficzny/out/obj/gsv-ServerCommand.o: ../../serwer-z-tlem/src/gsv-ServerCommand.cpp inc/gsv-ServerCommand.hh \
 		inc/gsv-GeomParams.hh \
 		inc/gsv-Vector3d.hh \
 		inc/geomVector.hh \
@@ -619,9 +619,9 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 		inc/gsv-Map4SceneGeomObjs.hh \
 		inc/gsv-Cuboid.hh \
 		inc/gtsDebug.hh
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-ServerCommand.o src/gsv-ServerCommand.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-ServerCommand.o ../../serwer-z-tlem/src/gsv-ServerCommand.cpp
 
-/tmp/martyna/serwer_graficzny/out/obj/gsv-Tests.o: src/gsv-Tests.cpp inc/gsv-GeomParams.hh \
+/tmp/martyna/serwer_graficzny/out/obj/gsv-Tests.o: ../../serwer-z-tlem/src/gsv-Tests.cpp inc/gsv-GeomParams.hh \
 		inc/gsv-Vector3d.hh \
 		inc/geomVector.hh \
 		inc/gsv-RGB.hh \
@@ -632,9 +632,9 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 		inc/gsv-GraphObject.hh \
 		inc/gsv-Map4DescGeomObjs.hh \
 		inc/gsv-Map4SceneGeomObjs.hh
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-Tests.o src/gsv-Tests.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-Tests.o ../../serwer-z-tlem/src/gsv-Tests.cpp
 
-/tmp/martyna/serwer_graficzny/out/obj/gsv-WgViewer3D.o: src/gsv-WgViewer3D.cpp inc/gsv-WgViewer3D.hh \
+/tmp/martyna/serwer_graficzny/out/obj/gsv-WgViewer3D.o: ../../serwer-z-tlem/src/gsv-WgViewer3D.cpp inc/gsv-WgViewer3D.hh \
 		inc/gsv-BufferedScene.hh \
 		inc/gsv-Scene.hh \
 		inc/gsv-GraphObject.hh \
@@ -647,12 +647,12 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 		inc/gsv-AnglesRPY.hh \
 		inc/gsv-Map4SceneGeomObjs.hh \
 		inc/gsv-BackgroundImage.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-WgViewer3D.o src/gsv-WgViewer3D.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gsv-WgViewer3D.o ../../serwer-z-tlem/src/gsv-WgViewer3D.cpp
 
-/tmp/martyna/serwer_graficzny/out/obj/gtsDebug.o: src/gtsDebug.cpp inc/gtsDebug.hh
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gtsDebug.o src/gtsDebug.cpp
+/tmp/martyna/serwer_graficzny/out/obj/gtsDebug.o: ../../serwer-z-tlem/src/gtsDebug.cpp inc/gtsDebug.hh
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/gtsDebug.o ../../serwer-z-tlem/src/gtsDebug.cpp
 
-/tmp/martyna/serwer_graficzny/out/obj/main.o: src/main.cpp inc/gsv-CommandInterpreter.hh \
+/tmp/martyna/serwer_graficzny/out/obj/main.o: ../../serwer-z-tlem/src/main.cpp inc/gsv-CommandInterpreter.hh \
 		inc/gsv-BufferedScene.hh \
 		inc/gsv-Scene.hh \
 		inc/gsv-GraphObject.hh \
@@ -671,7 +671,7 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 		inc/gtsDebug.hh \
 		inc/gsv-Const.h \
 		inc/gsv-GraphicsWindow.hh
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/main.o src/main.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/main.o ../../serwer-z-tlem/src/main.cpp
 
 /tmp/martyna/serwer_graficzny/out/obj/moc_gsv-GraphicsWindow.o: /tmp/martyna/serwer_graficzny/out/moc/moc_gsv-GraphicsWindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o /tmp/martyna/serwer_graficzny/out/obj/moc_gsv-GraphicsWindow.o /tmp/martyna/serwer_graficzny/out/moc/moc_gsv-GraphicsWindow.cpp

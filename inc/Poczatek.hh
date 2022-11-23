@@ -12,6 +12,17 @@
 #include <cstdio>
 #include <iostream>
 #include "xmlinterp.hh"
+#include <iostream>
+#include <iomanip>
+#include <cstring>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <unistd.h>
+#include <thread>
+#include <mutex>
+#include <vector>
 #define LINESIZE 500
 
 #include <xercesc/sax2/SAX2XMLReader.hpp>
@@ -33,6 +44,7 @@ class Poczatek {
         std::string xmlFile;
         /*! \brief Configuration read from a xml file */
         Configuration conf;
+        
 public:
 /*!
     * \brief KONSTRUKTOR
@@ -57,6 +69,14 @@ public:
     * \brief zwróć terazniejsza conf
     */
     Configuration & GetConf(){return conf; }
+
+    int socket_manager;
+    Scene Scena;
+    InterfaceVector Lib;
+    bool SendScene();
+
+    int Send(const char *sMesg);
+    bool ExecProgram(const char* FileName);
 
 
 };

@@ -53,10 +53,21 @@ const char* Interp4Set::GetCmdName() const
 }
 
 
+// /*!
+//  *
+//  */
+// bool Interp4Set::ExecCmd( MobileObj  *pMobObj,  int  Socket) const
+// {
+//   /*
+//    *  Tu trzeba napisać odpowiedni kod.
+//    */
+//   return true;
+// }
+
 /*!
  *
  */
-bool Interp4Set::ExecCmd( MobileObj  *pMobObj,  int  Socket) const
+bool Interp4Set::ExecCmd( Scene  *Scena,  int  Socket) const
 {
   /*
    *  Tu trzeba napisać odpowiedni kod.

@@ -98,3 +98,85 @@ bool Poczatek::PoczatekCmd(std::istringstream & IStrm4Cmds)
     return pclose(pProc) == 0;
 }
 
+bool Poczatek::SendScene() 
+{
+  for (int i = 0; i < conf.GetObjVector().size(); ++i)
+  {
+    stringstream pom;  
+    Dane tmp = conf.GetObjVector()[i];
+    Vector3D rotacja;
+    rotacja[0]=tmp.GetAng_Roll_deg();
+    rotacja[1]=tmp.GetAng_Pitch_deg();
+    rotacja[2]=tmp.GetAng_Yaw_deg();
+    pom << "AddObj Name=" << tmp.GetName() << " RGB="  << tmp.GetColor() << "  Scale=" << tmp.GetScale() <<
+      " Shift=" << tmp.GetShift() << " RotXYZ_deg=" << rotacja << " Trans_m=" << tmp.GetPosition_m() <<"\n";
+
+    const string tmp2 = pom.str();
+    const char *napis = tmp2.c_str();
+    this->Send(napis);
+
+
+    
+  }
+  
+}
+
+bool Poczatek::ExecProgram(const char* NazwaPliku) 
+{
+  string Cmd4Preproc = "cpp -P ";
+  char Line[LINESIZE];
+  ostringstream OTmpStrm;
+  istringstream Strumien;
+
+
+  Cmd4Preproc += NazwaPliku;
+  FILE* pProc = popen(Cmd4Preproc.c_str(),"r");
+
+  if (!pProc)
+    return false;
+
+  while (fgets(Line,LINESIZE,pProc)) 
+  {
+    OTmpStrm << Line;
+  }
+
+  Strumien.str(OTmpStrm.str());
+  vector<Interp4Command*> CmdCollection;
+
+  string Name;
+  while(!Strumien.eof()) 
+  {
+    Strumien >> Name;
+    if(Name.length() > 0)
+    {
+      CmdCollection.push_back(Lib[Name]->get_Cmd());
+      CmdCollection.back()->ReadParams(Strumien);
+    }
+  }
+
+  for(Interp4Command* cmd : CmdCollection){
+    //    cmd->ExecCmd(_Scn,Socket2Serv);
+    cmd->PrintCmd();
+  }
+
+
+
+}
+
+
+int Poczatek::Send(const char *sMesg)
+{
+     ssize_t  IlWyslanych;
+     ssize_t  IlDoWyslania = (ssize_t) strlen(sMesg);
+
+     while ((IlWyslanych = write(socket_manager,sMesg,IlDoWyslania)) > 0) 
+     {
+          IlDoWyslania -= IlWyslanych;
+          sMesg += IlWyslanych;
+     }
+     if (IlWyslanych < 0) 
+     {
+          cerr << "*** Blad przeslania napisu." << endl;
+     }
+     return 0;
+}
