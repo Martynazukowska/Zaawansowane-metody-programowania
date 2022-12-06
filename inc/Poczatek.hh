@@ -31,6 +31,8 @@
 #include <xercesc/util/XMLString.hpp>
 #include "xmlinterp.hh"
 #include <list>
+#include "klient.hh"
+#include "watki.hh"
 
 
 using namespace std;
@@ -70,12 +72,13 @@ public:
     */
     Configuration & GetConf(){return conf; }
 
-    int socket_manager;
+    //int socket_manager;
+    GuardedSocket socket;
     Scene Scena;
     InterfaceVector Lib;
     bool SendScene();
 
-    int Send(const char *sMesg);
+    //int Send(const char *sMesg);
     bool ExecProgram(const char* FileName);
 
 

@@ -7,6 +7,7 @@
 #endif
 
 #include "Interp4Command.hh"
+#define N 100
 
 /*!
  * \file
@@ -54,7 +55,7 @@ double rot_deg;
    * \brief Wykonuje polecenie oraz wizualizuje jego realizację
    */
   //virtual bool ExecCmd( MobileObj  *pMobObj, int Socket) const;
-  virtual bool ExecCmd( Scene  *Scena, int Socket) const;
+  virtual bool ExecCmd( Scene  *Scena, GuardedSocket  *Socket) const;
   /*!
    * \brief Czyta wartości parametrów danego polecenia
    */

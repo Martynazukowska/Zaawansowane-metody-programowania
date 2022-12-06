@@ -25,6 +25,7 @@ public:
     ~InterfaceVector();
     void CreateCmd(std::string Cmd);
     std::shared_ptr<LibInterface> operator [] (std::string Cmd);
+    //bool exec(std::istream & commandsStream, std::shared_ptr<Scene> & scene);
 };
 
 #endif

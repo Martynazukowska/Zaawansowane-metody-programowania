@@ -18,18 +18,18 @@ void Scene::AddMobileObject(Configuration *pConfig)
     mapMobileObjects[tmp->GetName()] = tmp;
   }
 }
-std::shared_ptr<MobileObj> Scene::operator [] (std::string &Name){
-  return mapMobileObjects[Name];
-}
+// std::shared_ptr<MobileObj> Scene::operator [] (std::string &Name){
+//   return mapMobileObjects[Name];
+// }
 
-std::shared_ptr<MobileObj> Scene::operator [] (char *sName){
-  return mapMobileObjects[sName];
-}
+// std::shared_ptr<MobileObj> Scene::operator [] (char *sName){
+//   return mapMobileObjects[sName];
+// }
 
-std::shared_ptr<MobileObj> Scene::TakeMobileObj(const char *sObjName){
-  return mapMobileObjects[sObjName];
-}
+// std::shared_ptr<MobileObj> Scene::TakeMobileObj(const char *sObjName){
+//   return mapMobileObjects[sObjName];
+// }
 
-std::shared_ptr<MobileObj> Scene::TakeMobileObj(const std::string &rObjName){
-  return mapMobileObjects[rObjName];
-}
+// std::shared_ptr<MobileObj> Scene::TakeMobileObj(const std::string &rObjName){
+//   return mapMobileObjects[rObjName];
+// }

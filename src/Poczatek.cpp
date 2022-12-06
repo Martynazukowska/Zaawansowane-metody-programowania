@@ -113,7 +113,7 @@ bool Poczatek::SendScene()
 
     const string tmp2 = pom.str();
     const char *napis = tmp2.c_str();
-    this->Send(napis);
+    Send_zwykly(socket.GetSocket(),napis);
 
 
     
@@ -154,9 +154,13 @@ bool Poczatek::ExecProgram(const char* NazwaPliku)
     }
   }
 
-  for(Interp4Command* cmd : CmdCollection){
-    //    cmd->ExecCmd(_Scn,Socket2Serv);
-    cmd->PrintCmd();
+  std::cerr<<CmdCollection.size();
+
+  for(int i=0; i<CmdCollection.size()-1;i++)
+  {
+     std::cerr<<"DUUUUUUUUUUUUUUPA";
+    CmdCollection[i]->ExecCmd(&Scena,&socket);
+    CmdCollection[i]->PrintCmd();
   }
 
 
@@ -164,19 +168,19 @@ bool Poczatek::ExecProgram(const char* NazwaPliku)
 }
 
 
-int Poczatek::Send(const char *sMesg)
-{
-     ssize_t  IlWyslanych;
-     ssize_t  IlDoWyslania = (ssize_t) strlen(sMesg);
+// int Poczatek::Send(const char *sMesg)
+// {
+//      ssize_t  IlWyslanych;
+//      ssize_t  IlDoWyslania = (ssize_t) strlen(sMesg);
 
-     while ((IlWyslanych = write(socket_manager,sMesg,IlDoWyslania)) > 0) 
-     {
-          IlDoWyslania -= IlWyslanych;
-          sMesg += IlWyslanych;
-     }
-     if (IlWyslanych < 0) 
-     {
-          cerr << "*** Blad przeslania napisu." << endl;
-     }
-     return 0;
-}
+//      while ((IlWyslanych = write(socket_manager,sMesg,IlDoWyslania)) > 0) 
+//      {
+//           IlDoWyslania -= IlWyslanych;
+//           sMesg += IlWyslanych;
+//      }
+//      if (IlWyslanych < 0) 
+//      {
+//           cerr << "*** Blad przeslania napisu." << endl;
+//      }
+//      return 0;
+// }

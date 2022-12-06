@@ -9,6 +9,7 @@
 #include <fstream>
 #include <vector>
 #include "InterfaceVector.hh"
+#include "Poczatek.hh"
 
 using namespace std;
 
@@ -27,6 +28,7 @@ public:
     void Czytwanie_wartości_wtyczek();
     void Wskazniki_i_wartosci();
     void Czytaj_pierwsze_zpliku(istringstream &file);
+    void Cytaj_XML(Poczatek podawany);
     
 };
 

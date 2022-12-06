@@ -6,6 +6,30 @@ using std::cout;
 using std::endl;
 
 
+/*!
+ * \brief Wysyła napis do poprzez gniazdo sieciowe.
+ *
+ * Wysyła napis do poprzez gniazdo sieciowe.
+ * \param[in] Sk2Server - deskryptor gniazda sieciowego, poprzez które 
+ *                        ma zostać wysłany napis w sensie języka C.
+ * \param[in] sMesg - zawiera napis, który ma zostać wysłany poprzez
+ *                    gniazdo sieciowe.
+ */
+int Send_zwykly(int Sk2Server, const char *sMesg)
+{
+  ssize_t  IlWyslanych;
+  ssize_t  IlDoWyslania = (ssize_t) strlen(sMesg);
+
+  while ((IlWyslanych = write(Sk2Server,sMesg,IlDoWyslania)) > 0) {
+    IlDoWyslania -= IlWyslanych;
+    sMesg += IlWyslanych;
+  }
+  if (IlWyslanych < 0) {
+    cerr << "*** Blad przeslania napisu." << endl;
+  }
+  return 0;
+}
+
 extern "C" {
  Interp4Command* CreateCmd(void);
   const char* GetCmdName() { return "Rotate"; }
@@ -66,11 +90,30 @@ const char* Interp4Rotate::GetCmdName() const
 /*!
  *
  */
-bool Interp4Rotate::ExecCmd( Scene  *Scena,  int  Socket) const
+bool Interp4Rotate::ExecCmd( Scene  *Scena,  GuardedSocket  *Socket) const
 {
-  /*
-   *  Tu trzeba napisać odpowiedni kod.
-   */
+  double startYaw = Scena->TakeMobileObj(obj_name)->GetAng_Yaw_deg();
+  double delta_yaw_deg = 0;
+    double dist_step_deg = (double)rot_deg/N;
+    double time_step_us = (((double)this->rot_deg/this->rot_speed_degs)*1000000)/N;
+
+    for(int i = 0; i<N; ++i)
+    {
+        delta_yaw_deg += dist_step_deg;
+        Scena->TakeMobileObj(obj_name)->SetAng_Yaw_deg(delta_yaw_deg + startYaw);
+        stringstream pom;
+        Vector3D rotacja;
+        rotacja[0]=Scena->TakeMobileObj(obj_name)->GetAng_Roll_deg();
+        rotacja[1]=Scena->TakeMobileObj(obj_name)->GetAng_Pitch_deg();
+        rotacja[2]=Scena->TakeMobileObj(obj_name)->GetAng_Yaw_deg();  
+
+      pom << "UpdateObj Name=" << Scena->TakeMobileObj(obj_name)->GetName() << " RotXYZ_deg=" << rotacja <<"\n";
+
+      const string tmp2 = pom.str();
+      const char *napis = tmp2.c_str();
+      Send_zwykly(Socket->GetSocket(),napis);
+    }
+  
   return true;
 }
 

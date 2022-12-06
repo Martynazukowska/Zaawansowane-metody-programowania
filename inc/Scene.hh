@@ -41,10 +41,23 @@
             void AddMobileObject(Configuration *pConfig);
 
             std::map<std::string, std::shared_ptr<MobileObj>> & GetMapMobileObjects() {return mapMobileObjects;}
-            std::shared_ptr<MobileObj> TakeMobileObj(const char *ObjName);
-            std::shared_ptr<MobileObj> TakeMobileObj(const std::string &ObjName);
-            std::shared_ptr<MobileObj> operator [] (std::string &Name);
-            std::shared_ptr<MobileObj> operator [] (char *Name);
+            std::shared_ptr<MobileObj> TakeMobileObj(const char *ObjName)
+            {
+                return mapMobileObjects[ObjName];
+            }
+            std::shared_ptr<MobileObj> TakeMobileObj(const std::string &ObjName)
+            {
+                return mapMobileObjects[ObjName];
+            }
+            std::shared_ptr<MobileObj> operator [] (std::string &Name)
+            {
+                return mapMobileObjects[Name];
+            }
+            std::shared_ptr<MobileObj> operator [] (char *Name)
+            {
+                return mapMobileObjects[Name];
+            }
+
     };
 
 

@@ -24,7 +24,7 @@
 #include <mutex>
 
 
-#define PORT 2877
+#define PORT 6217
 #include "Scene.hh"
 #include "Dane.hh"
 #include "Poczatek.hh"
@@ -84,17 +84,18 @@ int main(int argc, char *argv[])
   {
     return 1;
   }
-
+  
   istringstream file;
   if(!Parserl.PoczatekCmd(file))
   {
     return 1;
   }
 
-
-
+  
+  //Parserl.ExecProgram(argv[1]);
+  
   std::vector<Interp4Command *> wskaznikiCmd;
- 
+  
   
   // InterfaceVector Libs;
   // Libs.CreateCmd("Move");
@@ -103,17 +104,17 @@ int main(int argc, char *argv[])
   // Libs.CreateCmd("Set");
 
   //ProgramInterpreter Szef;
-
+  
 
   for(unsigned long int i = 0; i < Parserl.GetConf().GetLibsVector().size(); ++i) 
   {
+    
     Parserl.Lib.CreateCmd(Parserl.GetConf().GetLibsVector()[i]);
+   
   }
-
-
+  
   Parserl.Scena.AddMobileObject(&Parserl.GetConf());
-
-  std::cout << endl << Parserl.Scena["Podstawa"]->GetPosition_m() << endl;
+  std::cerr << endl << Parserl.Scena["Ob_A"]->GetPosition_m() << endl;
   std::cerr << Parserl.GetConf().GetObjVector()[0].GetName()<<endl;
   std::cerr << Parserl.GetConf().GetObjVector()[0].GetAng_Roll_deg()<<endl;
   std::cerr << Parserl.GetConf().GetObjVector()[0].GetAng_Pitch_deg()<<endl;
@@ -123,33 +124,41 @@ int main(int argc, char *argv[])
   std::cerr << Parserl.GetConf().GetObjVector()[0].GetShift()<<endl;
   std::cerr << Parserl.GetConf().GetObjVector()[0].GetColor()<<endl;
 
-  if (!OpenConnection(Parserl.socket_manager)) 
+  int pomocna;
+  if (!OpenConnection(pomocna)) 
   {
     return 1;
   }
+
+  Parserl.socket.SetSocket(pomocna);
+
+
+  Send_zwykly(Parserl.socket.GetSocket(),"Clear\n");
   Parserl.SendScene();
+
   // Testy test;
   // test.Czytwanie_wartości_wtyczek();
   // test.Wskazniki_i_wartosci();
 
   
-  // string name;
-  // while (!file.eof())
-  // {
-  //   file >> name;
-  //   if (name.length() > 0)
-  //   {
-  //     wskaznikiCmd.push_back(Libs[name]->get_Cmd());
-  //     wskaznikiCmd.back()->ReadParams(file);
-  //   }
-  // }
+  string name;
+  while (!file.eof())
+  {
+    file >> name;
+    if (name.length() > 0)
+    {
+      wskaznikiCmd.push_back(Parserl.Lib[name]->get_Cmd());
+      wskaznikiCmd.back()->ReadParams(file);
+    }
+  }
 
-  //   int i = 1;
-  // for (Interp4Command *cmd : wskaznikiCmd)
-  // {
-  //   cout << i++ << ". ";
-  //   cmd->PrintCmd();
-  // }  
-  Parserl.Send("Close\n");
-  close(Parserl.socket_manager);
+  wskaznikiCmd.pop_back();
+
+    int i = 1;
+  for (Interp4Command *cmd : wskaznikiCmd)
+  {
+    cmd->ExecCmd(&Parserl.Scena,&Parserl.socket);
+  }  
+  Send_zwykly(Parserl.socket.GetSocket(),"Close\n");
+  close(Parserl.socket.GetSocket());
 }

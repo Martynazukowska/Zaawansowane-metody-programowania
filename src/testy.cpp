@@ -58,3 +58,16 @@ void Testy::Czytaj_pierwsze_zpliku(istringstream &file)
     // tmp->PrintCmd();
     // delete tmp;
 }
+
+void Testy::Cytaj_XML(Poczatek Parserl)
+{
+  std::cout << endl << Parserl.Scena["Podstawa"]->GetPosition_m() << endl;
+  std::cerr << Parserl.GetConf().GetObjVector()[0].GetName()<<endl;
+  std::cerr << Parserl.GetConf().GetObjVector()[0].GetAng_Roll_deg()<<endl;
+  std::cerr << Parserl.GetConf().GetObjVector()[0].GetAng_Pitch_deg()<<endl;
+  std::cerr << Parserl.GetConf().GetObjVector()[0].GetAng_Yaw_deg()<<endl;
+  std::cerr << Parserl.GetConf().GetObjVector()[0].GetPosition_m()<<endl;
+  std::cerr << Parserl.GetConf().GetObjVector()[0].GetScale()<<endl;
+  std::cerr << Parserl.GetConf().GetObjVector()[0].GetShift()<<endl;
+  std::cerr << Parserl.GetConf().GetObjVector()[0].GetColor()<<endl;
+}
