@@ -122,6 +122,7 @@ bool Interp4Move::ExecCmd( Scene  *Scena,  GuardedSocket  *Socket) const
     const string tmp2 = pom.str();
     const char *napis = tmp2.c_str();
     Send_zwykly(Socket->GetSocket(),napis);
+    usleep(time_step_us);
 
   }
   return true;

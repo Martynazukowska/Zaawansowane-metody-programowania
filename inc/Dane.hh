@@ -10,7 +10,7 @@
     /*! 
     *   \brief Klasa Dane reprezentuje dodatkowe dane potrzebne do zasymolowania objektu
     */
-    class Dane: public MobileObj
+    class Dane
     {   
         private:
             /*!
@@ -25,6 +25,12 @@
             * \brief 3D vector Środka objektu
             */
             Vector3D _Shift;
+
+            std::string Nazwa;
+
+            Vector3D Rotacja;
+
+            Vector3D pozycja;
 
         public:
             // /*!
@@ -45,8 +51,19 @@
             * \param[in] skala - skala jako Vector3D (x, y, z).
             * \param[in] color - color red [0, 255] color green [0, 255] color blue [0, 255]
             */
-            Dane(std::string name, Vector3D rot_deg, Vector3D pos_m, Vector3D skala, Vector3D color, Vector3D shift):
-                                        MobileObj(name, rot_deg, pos_m), scale(skala), colorRGB(color), _Shift(shift) {};
+            // Dane(std::string name, Vector3D rot_deg, Vector3D pos_m, Vector3D skala, Vector3D color, Vector3D shift)
+            //                             MobileObj(name, rot_deg, pos_m), scale(skala), colorRGB(color), _Shift(shift) {};
+
+            Dane(std::string name, Vector3D rot_deg, Vector3D pos_m, Vector3D skala, Vector3D color, Vector3D shift)
+            {
+                                            pozycja=pos_m;
+                                            Rotacja=rot_deg;
+                                            scale=skala;
+                                            colorRGB=color;
+                                            _Shift=shift;
+                                            Nazwa=name;
+                                            //, scale(skala), colorRGB(color), _Shift(shift) {};
+            }
             Dane(){
                 MobileObj();
                 for (int i = 0; i < 3; i++)
@@ -54,6 +71,8 @@
                     scale[i]=1;
                     colorRGB[i]=0;
                     _Shift[i]=0;
+                    pozycja[i]=0;
+                    Rotacja[i]=0;
                 }
                 
             };
@@ -71,10 +90,23 @@
             */
             const Vector3D & GetColor(){return colorRGB;}
             const Vector3D & GetShift(){return _Shift;}
+            const Vector3D & GetPosition_m(){return pozycja;}
+            const std::string & GetName(){return Nazwa;}
+
+            const double & GetAng_Roll_deg(){return Rotacja[0];}
+            const double & GetAng_Pitch_deg(){return Rotacja[1];}
+            const double & GetAng_Yaw_deg(){return Rotacja[2];}
+            
 
             void SetShift(Vector3D shift) { _Shift = shift; }		
             void SetScale(Vector3D skala) { scale = skala; }
             void SetRGB(Vector3D rgb) { colorRGB = rgb; }
+            void SetPosition_m(Vector3D pozycja2) { pozycja = pozycja2; }
+            void SetAng_Roll_deg(double rotacja) { Rotacja[0] = rotacja; }
+            void SetAng_Pitch_deg(double rotacja) { Rotacja[1] = rotacja; }
+            void SetAng_Yaw_deg(double rotacja) { Rotacja[2] = rotacja; }
+            
+            void SetName(std::string nazwa2) { Nazwa = nazwa2; }
     };
 
 

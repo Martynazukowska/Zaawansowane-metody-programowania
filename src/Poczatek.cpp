@@ -103,7 +103,8 @@ bool Poczatek::SendScene()
   for (int i = 0; i < conf.GetObjVector().size(); ++i)
   {
     stringstream pom;  
-    Dane tmp = conf.GetObjVector()[i];
+    //Dane tmp = conf.GetObjVector()[i];
+    Dane tmp=conf.GetObjVector()[i];
     Vector3D rotacja;
     rotacja[0]=tmp.GetAng_Roll_deg();
     rotacja[1]=tmp.GetAng_Pitch_deg();
@@ -141,27 +142,52 @@ bool Poczatek::ExecProgram(const char* NazwaPliku)
   }
 
   Strumien.str(OTmpStrm.str());
-  vector<Interp4Command*> CmdCollection;
+  //vector<Interp4Command*> CmdCollection;
+  queue<Interp4Command*> Cmd;
+  queue<std::thread> ThreadCollection;
 
   string Name;
   while(!Strumien.eof()) 
   {
     Strumien >> Name;
-    if(Name.length() > 0)
+    // if(Name.length() > 0)
+    // {
+    //   CmdCollection.push_back(Lib[Name]->get_Cmd());
+    //   CmdCollection.back()->ReadParams(Strumien);
+    // }
+    if(Name == "Begin_Actions") 
     {
-      CmdCollection.push_back(Lib[Name]->get_Cmd());
-      CmdCollection.back()->ReadParams(Strumien);
+    
+    }
+
+    else if(Name == "End_Actions") 
+    { 
+      while(!Cmd.empty())
+      {
+	      ThreadCollection.push(thread(&Interp4Command::ExecCmd,Cmd.front(),&Scena,&socket));
+	      Cmd.pop();
+      }
+      while(!ThreadCollection.empty())
+      {
+	      ThreadCollection.front().join();	
+	      ThreadCollection.pop();
+      }
+    }
+
+    else if(Name== "Move" || Name== "Rotate" || Name== "Pause" || Name== "Set")
+    {	
+      Cmd.push(Lib[Name]->get_Cmd());
+      Cmd.back()->ReadParams(Strumien);
     }
   }
 
-  std::cerr<<CmdCollection.size();
+  // for(int i=0; i<CmdCollection.size()-1;i++)
+  // {
+  //   //CmdCollection[i]->ExecCmd(&Scena,&socket);
+  //   //CmdCollection[i]->PrintCmd();
+  // }
 
-  for(int i=0; i<CmdCollection.size()-1;i++)
-  {
-     std::cerr<<"DUUUUUUUUUUUUUUPA";
-    CmdCollection[i]->ExecCmd(&Scena,&socket);
-    CmdCollection[i]->PrintCmd();
-  }
+  return 1;
 
 
 

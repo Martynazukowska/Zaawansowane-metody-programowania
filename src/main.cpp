@@ -106,23 +106,23 @@ int main(int argc, char *argv[])
   //ProgramInterpreter Szef;
   
 
-  for(unsigned long int i = 0; i < Parserl.GetConf().GetLibsVector().size(); ++i) 
-  {
+  // for(unsigned long int i = 0; i < Parserl.GetConf().GetLibsVector().size(); ++i) 
+  // {
     
-    Parserl.Lib.CreateCmd(Parserl.GetConf().GetLibsVector()[i]);
+  //   Parserl.Lib.CreateCmd(Parserl.GetConf().GetLibsVector()[i]);
    
-  }
+  // }
   
-  Parserl.Scena.AddMobileObject(&Parserl.GetConf());
-  std::cerr << endl << Parserl.Scena["Ob_A"]->GetPosition_m() << endl;
-  std::cerr << Parserl.GetConf().GetObjVector()[0].GetName()<<endl;
-  std::cerr << Parserl.GetConf().GetObjVector()[0].GetAng_Roll_deg()<<endl;
-  std::cerr << Parserl.GetConf().GetObjVector()[0].GetAng_Pitch_deg()<<endl;
-  std::cerr << Parserl.GetConf().GetObjVector()[0].GetAng_Yaw_deg()<<endl;
-  std::cerr << Parserl.GetConf().GetObjVector()[0].GetPosition_m()<<endl;
-  std::cerr << Parserl.GetConf().GetObjVector()[0].GetScale()<<endl;
-  std::cerr << Parserl.GetConf().GetObjVector()[0].GetShift()<<endl;
-  std::cerr << Parserl.GetConf().GetObjVector()[0].GetColor()<<endl;
+  // Parserl.Scena.AddMobileObject(&Parserl.GetConf());
+  // std::cerr << endl << Parserl.Scena["Ob_A"]->GetPosition_m() << endl;
+  // std::cerr << Parserl.GetConf().GetObjVector()[0].GetName()<<endl;
+  // std::cerr << Parserl.GetConf().GetObjVector()[0].GetAng_Roll_deg()<<endl;
+  // std::cerr << Parserl.GetConf().GetObjVector()[0].GetAng_Pitch_deg()<<endl;
+  // std::cerr << Parserl.GetConf().GetObjVector()[0].GetAng_Yaw_deg()<<endl;
+  // std::cerr << Parserl.GetConf().GetObjVector()[0].GetPosition_m()<<endl;
+  // std::cerr << Parserl.GetConf().GetObjVector()[0].GetScale()<<endl;
+  // std::cerr << Parserl.GetConf().GetObjVector()[0].GetShift()<<endl;
+  // std::cerr << Parserl.GetConf().GetObjVector()[0].GetColor()<<endl;
 
   int pomocna;
   if (!OpenConnection(pomocna)) 
@@ -133,6 +133,16 @@ int main(int argc, char *argv[])
   Parserl.socket.SetSocket(pomocna);
 
 
+  for(unsigned long int i = 0; i < Parserl.GetConf().GetLibsVector().size(); ++i) 
+  {
+    
+    Parserl.Lib.CreateCmd(Parserl.GetConf().GetLibsVector()[i]);
+   
+  }
+  
+  Parserl.Scena.AddMobileObject(&Parserl.GetConf());
+
+
   Send_zwykly(Parserl.socket.GetSocket(),"Clear\n");
   Parserl.SendScene();
 
@@ -141,24 +151,26 @@ int main(int argc, char *argv[])
   // test.Wskazniki_i_wartosci();
 
   
-  string name;
-  while (!file.eof())
-  {
-    file >> name;
-    if (name.length() > 0)
-    {
-      wskaznikiCmd.push_back(Parserl.Lib[name]->get_Cmd());
-      wskaznikiCmd.back()->ReadParams(file);
-    }
-  }
+  // string name;
+  // while (!file.eof())
+  // {
+  //   file >> name;
+  //   if (name.length() > 0)
+  //   {
+  //     wskaznikiCmd.push_back(Parserl.Lib[name]->get_Cmd());
+  //     wskaznikiCmd.back()->ReadParams(file);
+  //   }
+  // }
+  Parserl.ExecProgram(argv[1]);
+
 
   wskaznikiCmd.pop_back();
 
-    int i = 1;
-  for (Interp4Command *cmd : wskaznikiCmd)
-  {
-    cmd->ExecCmd(&Parserl.Scena,&Parserl.socket);
-  }  
+  //   int i = 1;
+  // for (Interp4Command *cmd : wskaznikiCmd)
+  // {
+  //   cmd->ExecCmd(&Parserl.Scena,&Parserl.socket);
+  // }  
   Send_zwykly(Parserl.socket.GetSocket(),"Close\n");
   close(Parserl.socket.GetSocket());
 }

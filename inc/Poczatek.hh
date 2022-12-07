@@ -5,6 +5,7 @@
 #include <memory>
 #include "Scene.hh"
 #include "InterfaceVector.hh"
+#include "watki.hh"
 
 #include <string>
 #include <sstream>
@@ -23,6 +24,7 @@
 #include <thread>
 #include <mutex>
 #include <vector>
+#include <queue>
 #define LINESIZE 500
 
 #include <xercesc/sax2/SAX2XMLReader.hpp>
